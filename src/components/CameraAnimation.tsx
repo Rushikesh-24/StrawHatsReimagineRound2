@@ -4,6 +4,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import Image from 'next/image';
 import camera from '../../public/canon.png'
 import { Sacramento } from "next/font/google";
+import { TextGenerateEffect } from './TextGenerate';
 
 const font = Sacramento({
   weight: ["400"],
@@ -22,10 +23,10 @@ const CameraAnimation: React.FC<CameraAnimationProps> = ({ children }) => {
 
   useEffect(() => {
     const sequence = async () => {
-      await controls.start({ opacity: 1, scale: 0.4, transition: { duration: 2 } });
+      await controls.start({ opacity: 1, scale: 0.4, transition: { duration: 2,delay:1.2 } });
       setShowFlash(true);
-      await controls.start({ opacity: 1, transition: { duration: 0.8 } });
-      await controls.start({ opacity: 0, transition: { duration: 0.8 } });
+      await controls.start({ opacity: 1, transition: { duration: 0.5 } });
+      await controls.start({ opacity: 0, transition: { duration: 0.22 } });
       setShowFlash(false);
       setZoomInLens(true);
       await new Promise(resolve => setTimeout(resolve, 3000)); // Delay to show zoom effect
@@ -46,20 +47,20 @@ const CameraAnimation: React.FC<CameraAnimationProps> = ({ children }) => {
     <div className="relative flex justify-center items-center h-screen bg-black overflow-hidden">
       {!zoomInLens && (
         <motion.div
-          className={`absolute text-white z-10 font-normal text-7xl leading-[110px] ${font.className}`}
+          className={`absolute text-white z-10 font-medium text-7xl leading-[110px] ${font.className}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1 , delay: 0.6 }}
         >
-          Smile...
+          <TextGenerateEffect words='Smile...'/>
         </motion.div>
       )}
       {showFlash && (
         <motion.div
-          className="absolute inset-0 bg-white z-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
+          className="absolute inset-0 bg-white z-10 blur-sm"
+          initial={{ opacity:0 , scale:1 }}
+          animate={{ opacity: 1,scale:1 }}
+          transition={{ duration: 0.1, repeat:1, repeatType:"reverse" }}
         />
       )}
       <motion.div
