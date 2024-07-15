@@ -103,7 +103,7 @@ const CameraAnimation: React.FC<CameraAnimationProps> = ({ children }) => {
         />
         <div
           className={`absolute inset-0 bg-black ${
-            zoomInLens ? "bg-opacity-65" : "bg-opacity-80 "
+            zoomInLens ? "bg-opacity-65" : "bg-opacity-70"
           }`}
         ></div>
       </motion.div>

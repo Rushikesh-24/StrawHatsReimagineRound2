@@ -31,3 +31,111 @@ body {
     text-wrap: balance;
   }
 }
+
+#cursor {
+  transform-origin: 0 0;
+}
+
+.cursor-hovering{
+  transform-origin: 0 0;
+  rotate:180deg;
+  transition: rotate 0.5s;
+}
+
+#t1{
+  position:absolute;
+  top:-36%;
+  left:40%;
+  transition: 0.2s;
+}
+
+#t2{
+  position:absolute;
+  top:-66%;
+  left:-14%;
+  transition: 0.2s;
+
+}
+
+#t3{
+  position:absolute;
+  top:-40%;
+  left:-49%;
+  transition: 0.2s;
+
+}
+
+#t4{
+  position:absolute;
+  top:75%;
+  left:-72%;
+  transition: 0.2s;
+
+}
+
+#t5{
+  position:absolute;
+  top:55%;
+  left:11%;
+  transition: 0.2s;
+}
+
+#t6{
+  position:absolute;
+  top:25%;
+  left:65%;
+  transition: 0.2s;
+}
+
+
+
+
+
+.cursor-hovering > #t1 {
+  top:-22%;
+  left:36%
+}
+.cursor-hovering > #t2 {
+  top:-42%;
+  left:-11%;
+}
+
+.cursor-hovering > #t3 {
+  left:-32%;
+}
+.cursor-hovering > #t4 {
+  top:60%;
+  left:-70%;
+}
+.cursor-hovering > #t5 {
+  top:49%;
+  left:0%;
+}
+.cursor-hovering > #t6 {
+  left:50%;
+}
+
+/*
+#cursor:hover > #t1 {
+  top:-22%;
+  left:100%
+}
+#cursor:hover > #t2 {
+  top:-110%;
+  left:-11%;
+}
+
+#cursor:hover > #t3 {
+  left:-100%;
+}
+#cursor:hover > #t4 {
+  top:100%;
+  left:-70%;
+}
+#cursor:hover > #t5 {
+  top:100%;
+  left:0%;
+}
+#cursor:hover > #t6 {
+  left:100%;
+}*/
