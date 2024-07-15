@@ -51,7 +51,7 @@ const CameraAnimation: React.FC<CameraAnimationProps> = ({ children }) => {
   if (showContent) {
     return (
       <motion.div
-        className="relative flex justify-center items-center h-screen bg-black"
+        className="relative flex justify-center items-center bg-black"
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 0.9, 1] }}
         transition={{ duration: 2, ease: "easeInOut" }}
