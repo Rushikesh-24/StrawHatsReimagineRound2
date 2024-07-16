@@ -40,6 +40,7 @@ body {
   transform-origin: 0 0;
   rotate:180deg;
   transition: rotate 0.5s;
+  background:black;
 }
 
 #t1{
@@ -144,4 +145,26 @@ body {
   background-image: url("/herobg.svg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.bg-concrete {
+  background-image: url("/concrete.svg");
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+.bg-pic {
+  background-image: url("/pic.png");
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+.bg-concrete::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.bg-concrete {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
