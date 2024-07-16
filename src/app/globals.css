@@ -139,3 +139,9 @@ body {
 #cursor:hover > #t6 {
   left:100%;
 }*/
+
+.bg-heroimage {
+  background-image: url("/herobg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
