@@ -1,6 +1,8 @@
 //@ts-nocheck
 import { Bodies } from 'matter-js';
-
+const SOLID = 0x0001;
+const IMAGE = 0x0002;
+const NEXTBALL = 0x0003;
 function createBox(item, width, height, x){
 
     const box = {
@@ -17,6 +19,7 @@ function createBox(item, width, height, x){
         },
     };
     box.body.restitution = 0.2
+    //box.body.collisionFilter.mask = SOLI;
     return box
 }
 

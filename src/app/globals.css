@@ -159,12 +159,3 @@ body {
   background-repeat: repeat;
 }
 
-.bg-concrete::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.bg-concrete {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
