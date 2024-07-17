@@ -2,17 +2,12 @@
 import React, { useEffect } from "react";
 import { Silkscreen } from "next/font/google"
 
-const silkScreen = Silkscreen({
-  weight: ["400", "700"],
-  display: "swap",
-  subsets: ["latin"],
-});
 
 const Hero = () => {
   
   return (
     <div
-      className={`h-screen w-screen flex bg-heroimage ${silkScreen.className} relative`}
+      className={`h-screen w-screen flex bg-heroimage font-silk relative`}
     >
       <div className="hover-detect flex justify-start items-center bg-opacity-40 border-white border w-80 h-20 group cursor-pointer absolute bottom-28 right-28 overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black text-white">
       <div className="w-0 group-hover:w-1/4 h-full duration-500 group-hover:flex group-hover:translate-y-0 group-hover:translate-x-0 translate-y-full -translate-x-full justify-center items-center stroke-black bg-white  ">
