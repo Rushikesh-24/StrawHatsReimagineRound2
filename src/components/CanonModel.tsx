@@ -38,39 +38,27 @@ export const MeshComponent: React.FC<MeshComponentProps> = ({ rotation })=> {
     };
   }, []);
 
-  // useFrame(() => {
-  //   if (meshRef.current) {
-  //     meshRef.current.rotation.y = (mouse.current.x * Math.PI) / 6; // Adjust the multiplier as needed
-  //     meshRef.current.rotation.x = (mouse.current.y * Math.PI) / 8; // Adjust the multiplier as needed
-  //   }
-  // });
-
-  // useEffect(() => {
-  //   if (gltf && gltf.scene) {
-  //     gltf.scene.traverse((child) => {
-  //       if (child.isMesh) {
-  //         console.log("Mesh:", child);
-  //         if (child.material) {
-  //           console.log("Material:", child.material);
-  //         }
-  //       }
-  //     });
-  //   }
-  // }, [gltf]);
-
   return gltf ? (
     <>
-    <a.primitive
+    {/* this is better but error marta ts  */}
+
+    
+    {/* <a.primitive
       object={gltf.scene}
       ref={meshRef}
       position={[0, 0, 0]}
       rotation-x={Math.PI / 8.1}
       rotation-y={rotationSpring as unknown as number}
+    /> */}
+    <primitive
+      object={gltf.scene}
+      ref={meshRef}
+      position={[0, 0, 0]}
+      rotation={[Math.PI / 8.1,rotation,0]}
     />
     </>
   ) : null;
 }
-// Math.PI/1.4*2.5
 export const ModelViewer: React.FC<ModelViewerProps> = ({rotation}) => {
   const [animationComplete, setAnimationComplete] = useState(false);
   const { rotationSpring } = useSpring({
@@ -97,6 +85,9 @@ export const ModelViewer: React.FC<ModelViewerProps> = ({rotation}) => {
       {animationComplete && (
         <motion.div
           className="absolute bg-black lg:w-[12.5rem] lg:h-[10rem] w-44 top-[62%] -rotate-[20deg] lg:top-[65%] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          initial={{opacity: 0}}
+          animate={{opacity:1}}
+          transition={{duration: 0.5,ease:easeInOut}}
         >
           <motion.img
             src="/canonBg.png"
