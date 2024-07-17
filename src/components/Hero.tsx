@@ -1,14 +1,18 @@
 'use client'
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Silkscreen } from "next/font/google"
+import { ModelViewer } from "./CanonModel";
 
 const silkScreen = Silkscreen({
   weight: ["400", "700"],
-  display: "swap",
+  // display: ["swap"],
   subsets: ["latin"],
 });
-
 const Hero = () => {
+  const [rotation, setRotation] = useState(Math.PI/1.3);
+  const handleRotationChange = () => {
+    setRotation(Math.PI / 1.4 * 2.5);
+  };
   const backgroundStyle = {
     backgroundImage: "url(/heroBg.png)"
   };
@@ -17,7 +21,11 @@ const Hero = () => {
       style={backgroundStyle}
       className={`h-screen w-screen flex bg-no-repeat bg-cover bg-center ${silkScreen.className} relative`}
     >
-      <div className="hover-detect flex justify-center items-center bg-opacity-40 border-white border w-80 h-20 group cursor-pointer absolute bottom-28 right-28 flex-row hover:flex-row-reverse transition-all ease-in-out duration-100 delay-75 bg-black text-white">
+      <ModelViewer rotation={rotation}/>
+      <div className="hover-detect flex justify-center items-center bg-opacity-40 border-white border w-80 h-20 group cursor-pointer absolute bottom-28 right-28 flex-row hover:flex-row-reverse transition-all duration-100 delay-75 bg-black text-white ease-in-out z-30"
+      
+      onClick={handleRotationChange}
+      >
         <div className="text-5xl w-3/4 h-full flex justify-center items-center bg-opacity-40 group-hover:text-black group-hover:bg-white">
           EXPLORE
         </div>

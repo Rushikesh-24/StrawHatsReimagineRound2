@@ -8,7 +8,7 @@ export default function Home() {
       <Scroll/>
       <div>
 
-      <Cursor/>
+      {/* <Cursor/> */}
       <Hero/>
       <div className="h-screen w-screen">
         <h1 className="text-6xl text-center mt-20">Welcome to My Website</h1>

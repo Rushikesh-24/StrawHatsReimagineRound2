@@ -15,9 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={``}>
-        <CameraAnimation>
+        {/* <CameraAnimation> */}
         {children}
-        </CameraAnimation>
+        {/* </CameraAnimation> */}
         </body>
     </html>
   );
