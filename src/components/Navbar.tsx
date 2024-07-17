@@ -14,9 +14,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center fixed z-10 px-14 w-full h-24 bg-black">
+      <div className="flex justify-between items-center fixed z-10 sm:px-14 px-2 w-full sm:h-24 h-16 bg-black">
         <div
-          className={`${silkScreen.className} font-normal text-7xl text-center text-white`}
+          className={`${silkScreen.className} font-normal sm:text-7xl text-3xl text-center text-white`}
         >
           CAMERAS
         </div>
@@ -24,11 +24,11 @@ const Navbar = () => {
           onClick={() => {
             setIsOpen(!isOpen);
           }}
-          className="size-14 relative flex flex-col gap-1 justify-center"
+          className={`sm:size-14 size-8 relative flex flex-col sm:gap-1 gap-[2px] justify-center ${isOpen ? "mt-5" : ""}`}
           animate={isOpen ? "open" : "closed"}
         >
           <motion.div
-            className="h-1 w-4 ml-1 bg-white"
+            className="h-1 sm:w-4 w-2 ml-1 bg-white"
             variants={{
               open: {
                 scale: 0,
@@ -39,7 +39,7 @@ const Navbar = () => {
             }}
           ></motion.div>
           <motion.div
-            className="w-full h-2 bg-white rounded-t-sm"
+            className={`w-full bg-white ${isOpen ? "rounded-sm sm:h-2 h-1" : "rounded-t-sm h-2"}`}
             variants={{
               open: {
                 rotate: "45deg",
@@ -50,7 +50,7 @@ const Navbar = () => {
             }}
           ></motion.div>
           <motion.div
-            className="w-full h-2 bg-white rounded-t-sm absolute"
+            className={`w-full bg-white absolute ${isOpen ? "rounded-sm sm:h-2 h-1" : "rounded-t-sm h-2"}`}
             variants={{
               open: {
                 rotate: "-45deg",
@@ -85,7 +85,7 @@ const Navbar = () => {
             }}
           ></motion.div>
           <motion.div
-            className="size-6 rounded-full bg-white border-2 border-black absolute top-[35%] left-[25%]"
+            className="sm:size-6 size-4 rounded-full bg-white border-2 border-black absolute top-[35%] left-[25%]"
             variants={{
               open: {
                 scale: 0,
