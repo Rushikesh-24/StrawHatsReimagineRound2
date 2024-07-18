@@ -41,20 +41,28 @@ body {
   rotate:180deg;
   transition: rotate 0.5s;
   background:black;
+  backdrop-filter: difference;
 }
-
-#t1{
+#t1 {
   position:absolute;
   top:-36%;
   left:40%;
   transition: 0.2s;
+  isolation: isolate;
 }
+#t1 > path{
+ 
+  mix-blend-mode: difference;
+}
+
+
 
 #t2{
   position:absolute;
   top:-66%;
   left:-14%;
   transition: 0.2s;
+  fill:difference
 
 }
 
@@ -63,6 +71,7 @@ body {
   top:-40%;
   left:-49%;
   transition: 0.2s;
+  fill:difference
 
 }
 
@@ -71,6 +80,7 @@ body {
   top:75%;
   left:-72%;
   transition: 0.2s;
+  fill:difference
 
 }
 
@@ -79,6 +89,7 @@ body {
   top:55%;
   left:11%;
   transition: 0.2s;
+  fill:difference
 }
 
 #t6{
@@ -86,6 +97,7 @@ body {
   top:25%;
   left:65%;
   transition: 0.2s;
+  fill:difference
 }
 
 
@@ -145,6 +157,8 @@ body {
   background-image: url("/herobg.svg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  backdrop-filter: blur(100px);
 }
 
 .bg-concrete {
@@ -159,3 +173,51 @@ body {
   background-repeat: repeat;
 }
 
+.bg-print1{
+  background-image: url("https://images.pexels.com/photos/18207342/pexels-photo-18207342/free-photo-of-mitsubishi-pajero-in-countryside.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+.shrink {
+  animation: shrink 2s;
+}
+
+.fader {
+  animation: fadeIn 2s;
+}
+
+.timed-dimension{
+  
+}
+
+@keyframes shrink {
+  0%{
+    transform: scale(280%);
+  }
+  100%{
+    transform: scale(100%);
+  }
+}
+
+@keyframes changeDimension {
+  0%{
+    width: 100vw;
+  }
+  100%{
+    width: 400vw;
+  }
+}
+
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  80%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
