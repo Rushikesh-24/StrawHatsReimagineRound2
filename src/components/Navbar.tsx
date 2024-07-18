@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center fixed z-10 sm:px-14 px-2 w-full sm:h-24 h-16 bg-black">
+      <div className="flex justify-between items-center fixed z-10 sm:px-14 px-2 w-full sm:h-24 h-16 ">
         <div
           className={`${silkScreen.className} font-normal sm:text-7xl text-3xl text-center text-white`}
         >

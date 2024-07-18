@@ -250,6 +250,7 @@ export const MeshComponent: React.FC<MeshComponentProps> = ({
 
   return gltf ? (
     <>
+      {/*@ts-ignore */}
       <a.primitive
         object={gltf.scene}
         ref={meshRef}
