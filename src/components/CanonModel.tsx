@@ -24,7 +24,6 @@
 //   rotation: number;
 // }
 
-
 // export const MeshComponent: React.FC<MeshComponentProps> = ({ rotation,onLoad }) => {
 //   const fileUrl = "canon1.glb";
 //   const gltf = useLoader(GLTFLoader, fileUrl, () => onLoad());
@@ -109,7 +108,7 @@
 //   return (
 //     <div className="relative z-20 w-screen h-screen overflow-hidden">
 //       {
-//         loading && 
+//         loading &&
 //         <div className="w-screen h-screen justify-center items-center flex">
 //          <div className="w-2/5 h-2/5 flex justify-center items-center relative overflow-hidden animate-pulse">
 //         <div className="absolute inset-0 pointer-events-none">
@@ -191,7 +190,6 @@
 //   );
 // };
 
-
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -215,7 +213,10 @@ interface MeshComponentProps {
 
 interface ModelViewerProps {}
 
-export const MeshComponent: React.FC<MeshComponentProps> = ({ rotation, onLoad }) => {
+export const MeshComponent: React.FC<MeshComponentProps> = ({
+  rotation,
+  onLoad,
+}) => {
   const fileUrl = "canon1.glb";
   const gltf = useLoader(GLTFLoader, fileUrl, () => onLoad());
   const meshRef = useRef<THREE.Object3D>(null);
@@ -255,9 +256,7 @@ export const MeshComponent: React.FC<MeshComponentProps> = ({ rotation, onLoad }
         position={[50, 50, 0]}
         rotation-x={69.5}
         rotation-y={spring.rotationY}
-        // rotation-y={43.1}
         rotation-z={spring.rotationZ}
-        // rotation-z={0.25}
       />
     </>
   ) : null;
@@ -270,9 +269,8 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
 
   const handleRotationChange = () => {
     if (rotation.y === 43.1 && rotation.z === 0.25) {
-      setAnimationComplete(false)
+      setAnimationComplete(false);
       setRotation({ y: 40.1, z: -0.25 });
-  
     } else {
       setRotation({ y: 43.1, z: 0.25 });
     }
@@ -293,7 +291,6 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
   const handleModelLoad = () => {
     setLoading(false);
   };
-
   return (
     <div className="relative z-20 w-screen h-screen overflow-hidden">
       {loading && (
@@ -310,7 +307,8 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
         </div>
       )}
       <motion.div
-        className="md:flex justify-center items-center lg:h-screen lg:w-screen md:w-[80vw] md:h-[80vh] hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+        className={`md:flex justify-center items-center lg:h-screen lg:w-screen md:w-[80vw] md:h-[80vh] hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden `}
+        // ${animationComplete?"scale-[300] transition-all ease-in-out duration-[2s] delay-[3s]":""}
       >
         <Canvas camera={{ position: [50, 20, -55], fov: 3 }} className="">
           <Suspense fallback={null}>
@@ -322,7 +320,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
       </motion.div>
       {animationComplete && (
         <motion.div
-          className="absolute bg-black lg:w-[17.3rem] lg:h-[14rem] w-56 top-[54%] lg:top-[55.8%] lg:left-[43%] left-[43.2%] transform -translate-x-1/2 -translate-y-1/2 z-20 -rotate-1 h-48"
+          className={`absolute bg-black lg:w-[17.3rem] lg:h-[14rem] w-56 top-[54%] lg:top-[55.8%] lg:left-[43%] left-[43.2%] transform -translate-x-1/2 -translate-y-1/2 -rotate-1 h-48`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: easeInOut, delay: 0.4 }}
@@ -334,10 +332,11 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
           />
         </motion.div>
       )}
-       <div className="hover-detect flex justify-start items-center bg-opacity-40 border-white border w-80 h-20 group cursor-pointer absolute bottom-28 right-28 overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black text-white"
-       onClick={handleRotationChange}
-       >
-      <div className="w-0 group-hover:w-1/4 h-full duration-500 group-hover:flex group-hover:translate-y-0 group-hover:translate-x-0 translate-y-full -translate-x-full justify-center items-center stroke-black bg-white  ">
+      <div
+        className="hover-detect flex justify-start items-center bg-opacity-40 border-white border w-80 h-20 group cursor-pointer absolute bottom-28 right-28 overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black text-white"
+        onClick={handleRotationChange}
+      >
+        <div className="w-0 group-hover:w-1/4 h-full duration-500 group-hover:flex group-hover:translate-y-0 group-hover:translate-x-0 translate-y-full -translate-x-full justify-center items-center stroke-black bg-white  ">
           <svg
             width="37"
             height="43"
@@ -396,4 +395,3 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
     </div>
   );
 };
-
