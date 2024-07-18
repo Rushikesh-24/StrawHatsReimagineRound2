@@ -23,9 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`max-w-screen overflow-hidden ${silkScreen.variable}`}>
-        <CameraAnimation>
+        {/* <CameraAnimation> */}
           {children}
-        </CameraAnimation>
+        {/* </CameraAnimation> */}
       </body>
     </html>
   );
