@@ -255,7 +255,9 @@ export const MeshComponent: React.FC<MeshComponentProps> = ({ rotation, onLoad }
         position={[50, 50, 0]}
         rotation-x={69.5}
         rotation-y={spring.rotationY}
+        // rotation-y={43.1}
         rotation-z={spring.rotationZ}
+        // rotation-z={0.25}
       />
     </>
   ) : null;
@@ -267,12 +269,12 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
   const [rotation, setRotation] = useState({ y: 40.1, z: -0.25 });
 
   const handleRotationChange = () => {
-    if (rotation.y === 11.8 && rotation.z === 0.25) {
+    if (rotation.y === 43.1 && rotation.z === 0.25) {
       setAnimationComplete(false)
       setRotation({ y: 40.1, z: -0.25 });
   
     } else {
-      setRotation({ y: 11.8, z: 0.25 });
+      setRotation({ y: 43.1, z: 0.25 });
     }
   };
 
@@ -320,7 +322,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
       </motion.div>
       {animationComplete && (
         <motion.div
-          className="absolute bg-black lg:w-[17.3rem] lg:h-[14rem] w-56 top-[54%] lg:top-[55%] lg:left-[44.5%] left-[43.2%] transform -translate-x-1/2 -translate-y-1/2 z-20 -rotate-1 h-48"
+          className="absolute bg-black lg:w-[17.3rem] lg:h-[14rem] w-56 top-[54%] lg:top-[55.8%] lg:left-[43%] left-[43.2%] transform -translate-x-1/2 -translate-y-1/2 z-20 -rotate-1 h-48"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: easeInOut, delay: 0.4 }}
