@@ -5,7 +5,7 @@ import { Silkscreen } from "next/font/google"
 
 const silkScreen = Silkscreen({
   weight: ["400", "700"],
-  display: "swap",
+  // display: "swap",
   subsets: ["latin"],
 });
 
@@ -15,9 +15,9 @@ const Scroll = () => {
   return (
     <div className={`${silkScreen.className} fixed z-10 bottom-10 left-20 text-4xl w-14 h-72 flex justify-center items-center gap-5`}
     >
-      <div className='h-3/4 w-1/5 border border-white bg-red-600 rounded-xl relative'>
+      <div className='h-3/4 w-1/5 border border-white bg-red-600  relative'>
       <motion.div 
-          className="absolute bottom-0 w-full h-full bg-white rounded-xl" 
+          className="absolute bottom-0 w-full h-full bg-white" 
           style={{ height: sliderHeight }} 
         />
       </div>
