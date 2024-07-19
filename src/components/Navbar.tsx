@@ -60,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({ page }) => {
         }
       }, 500);
 
-      // Randomize for 1 second after settling phase starts
+      // After randomization
       setTimeout(() => {
         clearInterval(settleInterval);
         setText((prevText) =>
