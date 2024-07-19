@@ -2,18 +2,19 @@ import Hero from "@/components/Hero";
 import Scroll from "@/components/Scroll";
 import Cursor from "@/components/Cursor";
 import Navbar from "@/components/Navbar";
+import Printer from "@/components/Printers";
 
 export default function Home() {
   return (
-    <div className="w-screen overflow-x-hidden">
+    <div className="w-screen h-screen overflow-y-auto overflow-x-hidden">
       <Scroll />
       <div>
         <Navbar page={"CAMERAS"}/>
         {/* <Cursor /> */}
         <Hero />
-        <div className="h-screen w-screen">
-          <h1 className="text-6xl text-center mt-20">Welcome to My Website</h1>
-        </div>
+        <Printer />
+        <Printer />
+        <Printer />
       </div>
     </div>
   );

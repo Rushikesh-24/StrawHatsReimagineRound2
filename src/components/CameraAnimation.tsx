@@ -31,7 +31,7 @@ const CameraAnimation: React.FC<CameraAnimationProps> = ({ children }) => {
     const sequence = async () => {
       await controls.start({
         opacity: 1,
-        scale: 0.4,
+        scale: 0.8,
         transition: { duration: 2, delay: 1.2 },
       });
       setShowFlash(true);
@@ -51,7 +51,7 @@ const CameraAnimation: React.FC<CameraAnimationProps> = ({ children }) => {
   if (showContent) {
     return (
       <motion.div
-        className="relative flex justify-center items-center bg-black"
+        className="relative flex justify-center w-fit items-center bg-black"
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 0.9, 1] }}
         transition={{ duration: 2, ease: "easeInOut" }}
@@ -98,7 +98,7 @@ const CameraAnimation: React.FC<CameraAnimationProps> = ({ children }) => {
           alt="Camera"
           layout={zoomInLens ? "fill" : "intrinsic"}
           objectFit={zoomInLens ? "cover" : "contain"}
-          className={`${zoomInLens ? "-inset-44" : ""}`}
+          className={`${zoomInLens ? "-inset-44" : ""} brightness-[2]`}
           loading="eager"
         />
         <div
