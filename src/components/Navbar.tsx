@@ -45,7 +45,7 @@ const Navbar: React.FC<NavbarProps> = ({ page }) => {
         clearInterval(randomizeInterval);
         setIsSettling(true);
         setCurrentIndex(0);
-      }, 5000);
+      }, 2000);
     } else {
       // Settling Phase
       settleInterval = setInterval(() => {
@@ -92,7 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({ page }) => {
   return (
     <>
       {/* Navbar Header */}
-      <div className="flex justify-between items-center fixed z-10 sm:px-14 px-2 w-full sm:h-24 h-16 bg-black">
+      <div className="flex justify-between items-center fixed z-20 sm:px-14 px-2 w-full sm:h-24 h-16 bg-transparent">
         <div className={`${silkScreen.className} font-normal sm:text-7xl text-3xl text-center text-white`}>
           {text.join("")}
         </div>
@@ -154,7 +154,7 @@ const Navbar: React.FC<NavbarProps> = ({ page }) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed top-[13%] left-0 w-full h-[87%] place-content-center flex flex-col items-center justify-center z-10 bg-black"
+            className="fixed left-0 w-full h-screen place-content-center flex flex-col items-center justify-center z-10 bg-black"
             initial={{ opacity: 0, x: 1000 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -1000 }}
