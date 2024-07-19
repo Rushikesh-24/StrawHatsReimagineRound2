@@ -8,8 +8,8 @@ export default function Home() {
     <div className="w-screen overflow-x-hidden">
       <Scroll />
       <div>
-        <Navbar />
-        <Cursor />
+        <Navbar page={"CAMERAS"}/>
+        {/* <Cursor /> */}
         <Hero />
         <div className="h-screen w-screen">
           <h1 className="text-6xl text-center mt-20">Welcome to My Website</h1>
