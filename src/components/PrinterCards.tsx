@@ -243,10 +243,10 @@ const PrinterCards = () => {
                   src={slides[slideIndex].image}
                   alt=""
                   className="size-80"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, x: 50, y: 1000 }}
+                  animate={{ opacity: [0, 0, 0, 0, 1], x: 0, y: 0 }}
+                  exit={{ opacity: 0, x: -50, y: 0 }}
+                  transition={{ duration: 1 }}
                 />
               </AnimatePresence>
               <div
@@ -361,10 +361,10 @@ const PrinterCards = () => {
                 <motion.div
                   key={slideIndex}
                   className={`flex flex-col sm:gap-5 gap-2 sm:text-2xl text-xl ${silkScreen.className} font-normal text-left h-40 w-full sm:mt-20 pl-4`}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, x: 50, y: -1000 }}
+                  animate={{ opacity: [0, 1], x: 0,y: 0 }}
+                  exit={{ opacity: 0, x: -50, y: 0 }}
+                  transition={{ duration: 1 }}
                 >
                   {slides[slideIndex].content.map((text, index) => (
                     <p key={index}>{text}</p>
