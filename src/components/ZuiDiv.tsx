@@ -63,7 +63,6 @@ const ParallaxDivs: FC<ParallaxDivsProps> = ({ baseVelocity = 100, children }) =
               className="md:w-full h-full flex justify-between mx-4 space-x-4 md:space-x-8 gap-2"
             >
               {children}
-              {children}
             </motion.div>
           ))}
       </motion.div>
