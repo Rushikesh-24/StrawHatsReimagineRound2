@@ -80,9 +80,9 @@ const PrinterCards = () => {
   }, [isOpen, Zoomcontrols]);
 
   useEffect(() => {
-    let randomizeInterval;
-    let settleInterval;
-    let initialTimeout;
+    let randomizeInterval: NodeJS.Timeout;
+    let settleInterval: NodeJS.Timeout;
+    let initialTimeout: NodeJS.Timeout;
 
     if (!isSettling) {
       // Randomization Phase
@@ -142,7 +142,7 @@ const PrinterCards = () => {
     };
   }, [isSettling, currentIndex]);
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const boundingRect = e.currentTarget.getBoundingClientRect();
     const centerX = boundingRect.left + boundingRect.width / 2;
     if (e.clientX < centerX) {
