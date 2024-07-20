@@ -1,7 +1,6 @@
 "use client";
 import AboutUs from "@/components/AboutUs";
 import React from "react";
-import { text } from "stream/consumers";
 
 const page = () => {
   const data = [
@@ -22,6 +21,12 @@ const page = () => {
         "At Canon, the CSR endeavors are driven by its corporate philosophy of ‘Kyosei’, embodying the spirit of ‘living and working together for common good’. ",
       paragraph3:
         "Canon takes pride in not only bringing quality products to the market; but also, in contributing towards minimizing the environmental burden, through the effective application of green technologies.",
+    },
+    {
+      title: "",
+      paragraph1: "",
+      paragraph2: "",
+      paragraph3: "",
     },
     {
       title: "",
