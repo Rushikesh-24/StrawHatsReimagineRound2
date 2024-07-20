@@ -1,10 +1,11 @@
+//@ts-nocheck
 "use client"
 
 import Image from 'next/image'
-import Back from "../../../public/back.png"
-import EOS from "../../../public/cameras/eos.png"
-import Thread from "../../../public/rope.svg"
-import { Engine, Bodies, MouseConstraint, Composite, Events, Body, Composites, Constraint, Render, Runner, Mouse } from 'matter-js';
+import Back from "../../public/back.png"
+import EOS from "../../public/cameras/eos.png"
+import Thread from "../../public/rope.svg"
+import { Engine, Bodies, MouseConstraint, Composite, Events, Constraint } from 'matter-js';
 import { createBox } from '@/utils/createBox';
 import { useEffectOnce } from 'react-use';
 import { useState } from 'react'
@@ -35,6 +36,7 @@ function Cameras() {
 
             const mouseConstraint = MouseConstraint.create(
                 engine,{
+                    element: document.querySelector(".outscroll > div"),
                     collisionFilter: {mask: 0b1},
                 }
             );
@@ -48,9 +50,14 @@ function Cameras() {
                 
                 
             });
-            const container = document.querySelector(".bg-concrete");
+            const container = document.querySelector(".outscroll");
+            const innerContainer = document.querySelector(".outscroll > div");
             container?.addEventListener("mousewheel",(evt:any)=>{
-                window?.scrollBy(evt.deltaY, evt.deltaX);
+
+                if((container.scrollLeft === (innerContainer.clientWidth - window.innerWidth) && evt.deltaY > 0) || container.scrollLeft === 0 && evt.deltaY < 0){
+                    window?.scrollBy(evt.deltaX, evt.deltaY);
+                }
+                container?.scrollBy(evt.deltaY, 0);
                 setScroll({scrollX:window.scrollX, max:container.clientWidth - window.innerWidth})
             })
             
@@ -80,6 +87,7 @@ function Cameras() {
                     box.render()
                 })
                 Engine.update(engine);
+                
                 requestAnimationFrame(rerender);
             })();
         },2000)
@@ -88,43 +96,45 @@ function Cameras() {
 
 
   return (
-    <div className='h-screen max-h-screen w-[400vw] timed-dimension scroll-smooth overflow-x-hidden flex items-center  bg-concrete'>
-        <div className='absolute -top-[5%] -left-[0%] flex items-end'>
-            <Image 
-              src={Thread.src}
-              height={Thread.height}
-              width={Thread.width}
-              alt=''
-              className='mt-2 w-screen'
-            />
-            <Image 
-              src={Thread.src}
-              height={Thread.height}
-              width={Thread.width}
-              alt=''
-              className='mt-2 -ml-5 w-screen'
-            />
-            <Image 
-              src={Thread.src}
-              height={Thread.height}
-              width={Thread.width}
-              alt=''
-              className='mt-2 -ml-5 w-screen'
-            />
-            <Image 
-              src={Thread.src}
-              height={Thread.height}
-              width={Thread.width}
-              alt=''
-              className='mt-2 -ml-5 w-screen'
-            />
-        </div>
-        <Pic />
-        <Pic />
-        <Pic />
-        <Pic />
-        <div className='text-white fixed bottom-10 right-10 font-silk text-4xl'>
-            <p>[{scroll.scrollX > 0 && "<-"}CATEGORIES {scroll.scrollX < scroll.max && "->"}]</p>
+    <div className='relative outscroll h-screen w-screen overflow-y-hidden'>
+        <div className='h-screen w-[400vw] timed-dimension scroll-smooth flex items-center  bg-concrete'>
+            <div className='absolute -top-[5%] -left-[0%] flex items-end'>
+                <Image 
+                src={Thread.src}
+                height={Thread.height}
+                width={Thread.width}
+                alt=''
+                className='mt-2 w-screen'
+                />
+                <Image 
+                src={Thread.src}
+                height={Thread.height}
+                width={Thread.width}
+                alt=''
+                className='mt-2 -ml-5 w-screen'
+                />
+                <Image 
+                src={Thread.src}
+                height={Thread.height}
+                width={Thread.width}
+                alt=''
+                className='mt-2 -ml-5 w-screen'
+                />
+                <Image 
+                src={Thread.src}
+                height={Thread.height}
+                width={Thread.width}
+                alt=''
+                className='mt-2 -ml-5 w-screen'
+                />
+            </div>
+            <Pic />
+            <Pic />
+            <Pic />
+            <Pic />
+            <div className='text-white fixed bottom-10 right-10 font-silk text-4xl'>
+                <p>[{scroll.scrollX > 0 && "<-"}CATEGORIES {scroll.scrollX < scroll.max && "->"}]</p>
+            </div>
         </div>
     </div>
   )
