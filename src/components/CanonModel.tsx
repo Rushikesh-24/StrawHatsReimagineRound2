@@ -103,7 +103,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
         </div>
       )}
       <motion.div
-        className={`flex justify-center items-center h-screen w-screen absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden pointer-events-none`}
+        className={`md:flex justify-center items-center lg:h-screen lg:w-screen md:w-[80vw] md:h-[80vh] sm:w-[80vw] sm:h-[60vh] h-[30vh] w-[80vw] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden`}
       >
         <Canvas camera={{ position: [50, 20, -55], fov: 3 }} className="" shadows="basic">
           <Suspense fallback={null}>
@@ -116,7 +116,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
       </motion.div>
       {animationComplete && (
         <motion.div
-          className={`absolute bg-black xl:w-[19rem] xl:h-[16rem] xl:left-[44%] xl:top-[63%] lg:w-[20rem] lg:h-[15.5rem] lg:top-[62%] md:w-[17rem] md:h-52 md:top-[59%] sm:top-[57%] sm:w-44 sm:h-36 w-24 h-20 left-[43%] top-[54%] lg:left-[42%] sm:left-[41.2%] transform -translate-x-1/2 -translate-y-1/2 -rotate-1 `}
+          className={`absolute bg-black xl:w-[19rem] xl:h-[16rem] xl:left-[44%] xl:top-[64%] lg:w-[21rem] lg:h-[15.5rem] lg:top-[65%] md:w-[17rem] md:h-52 md:top-[62%] sm:top-[59%] sm:w-44 sm:h-36 w-[6.4rem] h-20 left-[45%] top-[54%] lg:left-[42%] sm:left-[44.2%] transform -translate-x-1/2 -translate-y-1/2 -rotate-1 `}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6,delay:0.4, ease: "easeInOut" }}
