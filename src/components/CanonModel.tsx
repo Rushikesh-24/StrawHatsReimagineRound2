@@ -242,7 +242,6 @@ export const MeshComponent: React.FC<MeshComponentProps> = ({
     if (meshRef.current && rotation.y === 40.1 && rotation.z === -0.25) {
       meshRef.current.position.x = mouse.current.x * 0.2;
       meshRef.current.position.y = mouse.current.y * 0.2;
-      console.log(mouse.current.x,mouse.current.y);
     } else if (rotation.y !== 40.1 && rotation.z !== -0.25 && meshRef.current) {
       meshRef.current.position.x = 0;
       meshRef.current.position.y = 0;
@@ -335,7 +334,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
         </motion.div>
       )}
       <div
-        className="hover-detect flex justify-start items-center bg-opacity-40 border-white border w-80 h-20 group cursor-pointer absolute bottom-28 right-28 overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black text-white"
+        className="hover-detect flex justify-start items-center bg-opacity-40 border-white border w-80 h-20 group cursor-pointer absolute bottom-10 right-10 overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black text-white"
         onClick={handleRotationChange}
       >
         <div className="w-0 group-hover:w-1/4 h-full duration-500 group-hover:flex group-hover:translate-y-0 group-hover:translate-x-0 translate-y-full -translate-x-full justify-center items-center stroke-black bg-white  ">

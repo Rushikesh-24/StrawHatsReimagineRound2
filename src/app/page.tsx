@@ -4,6 +4,8 @@ import Cursor from "@/components/Cursor";
 import Navbar from "@/components/Navbar";
 import Printer from "@/components/Printers";
 import Cameras from "@/components/Cameras";
+import AboutUs from "@/components/AboutUs";
+
 
 export default function Home() {
   return (
@@ -15,8 +17,7 @@ export default function Home() {
         <Hero />
         <Printer />
         <Cameras />
-        <Printer />
-        <Printer />
+        <AboutUs />
       </div>
     </div>
   );

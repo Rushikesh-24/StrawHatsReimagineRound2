@@ -9,6 +9,7 @@ import { Engine, Bodies, MouseConstraint, Composite, Events, Constraint } from '
 import { createBox } from '@/utils/createBox';
 import { useEffectOnce } from 'react-use';
 import { useState } from 'react'
+import { isDivInView } from '@/utils/isInView'
 
 function Cameras() {
     const [scroll, setScroll] = useState({scrollX:0, max:1});
@@ -53,12 +54,18 @@ function Cameras() {
             const container = document.querySelector(".outscroll");
             const innerContainer = document.querySelector(".outscroll > div");
             container?.addEventListener("mousewheel",(evt:any)=>{
-
-                if((container.scrollLeft === (innerContainer.clientWidth - window.innerWidth) && evt.deltaY > 0) || container.scrollLeft === 0 && evt.deltaY < 0){
-                    window?.scrollBy(evt.deltaX, evt.deltaY);
-                }
-                container?.scrollBy(evt.deltaY, 0);
-                setScroll({scrollX:window.scrollX, max:container.clientWidth - window.innerWidth})
+                    let ans = isDivInView(".outscroll");
+                    console.log(ans)
+                    if(!ans || ((container.scrollLeft === (innerContainer.clientWidth - window.innerWidth) && evt.deltaY > 0) || container.scrollLeft === 0 && evt.deltaY < 0)){
+                        window?.scrollBy(evt.deltaX, evt.deltaY);
+                    }
+                    if(ans){
+                        console.log("majak toh yeh hai ki ", ans, " hone ke bawajood chal ra hai")
+                        container?.scrollBy(evt.deltaY, 0);
+                        setScroll({scrollX:window.scrollX, max:container.clientWidth - window.innerWidth})
+                    
+                    }
+                
             })
             
                 let boxConstraints:any = [];
@@ -132,9 +139,9 @@ function Cameras() {
             <Pic />
             <Pic />
             <Pic />
-            <div className='text-white fixed bottom-10 right-10 font-silk text-4xl'>
+            {/*<div className='text-white absolute bottom-10 right-10 font-silk text-4xl'>
                 <p>[{scroll.scrollX > 0 && "<-"}CATEGORIES {scroll.scrollX < scroll.max && "->"}]</p>
-            </div>
+            </div>*/}
         </div>
     </div>
   )

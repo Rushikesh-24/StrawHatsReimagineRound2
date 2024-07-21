@@ -1,27 +1,66 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import { Silkscreen } from "next/font/google";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import MovingText from "./Zui";
 import { ParallaxDiv } from "./ZuiDiv";
 
-const silkScreen = Silkscreen({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-});
+const data:AboutUsProps[] = [
+  {
+    title: "ABOUT US",
+    paragraph1:
+      "Canon India Pvt. Ltd. is the sales and marketing subsidiary of Canon Inc., a world leader in imaging technologies",
+    paragraph2:
+      "Canon India markets a comprehensive range of sophisticated contemporary digital imaging products and solutions in India.",
+    paragraph3:
+      "In sync with its corporate tagline- ‘Delighting You Always’, reinforced by World-class technology, Canon offers an extended product portfolio.",
+  },
+  {
+    title: "SUSTAINABILITY",
+    paragraph1:
+      "Canon India takes pride to be socially inclined and focused towards its efficient and sustainable CSR projects.",
+    paragraph2:
+      "At Canon, the CSR endeavors are driven by its corporate philosophy of ‘Kyosei’, embodying the spirit of ‘living and working together for common good’. ",
+    paragraph3:
+      "Canon takes pride in not only bringing quality products to the market; but also, in contributing towards minimizing the environmental burden, through the effective application of green technologies.",
+  },
+  {
+    title: "",
+    paragraph1: "",
+    paragraph2: "",
+    paragraph3: "",
+  },
+  {
+    title: "",
+    paragraph1: "",
+    paragraph2: "",
+    paragraph3: "",
+  },
+  {
+    title: "",
+    paragraph1: "",
+    paragraph2: "",
+    paragraph3: "",
+  },
+  {
+    title: "",
+    paragraph1: "",
+    paragraph2: "",
+    paragraph3: "",
+  },
+];
+
 
 interface AboutUsProps {
-  data: {
+  
     title: string;
     paragraph1: string;
     paragraph2: string;
     paragraph3: string;
-  }[];
+
 }
 
-const AboutUs: React.FC<AboutUsProps> = ({ data }) => {
+const AboutUs = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [animationComplete, setAnimationComplete] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ container: ref });
 
@@ -35,18 +74,15 @@ const AboutUs: React.FC<AboutUsProps> = ({ data }) => {
     });
   }, [scrollYProgress, data.length]);
 
-  useEffect(() => {
-    console.log(currentIndex);
-  }, [currentIndex]);
 
   return (
-    <div className={`w-screen h-screen ${silkScreen.className}`}>
+    <div className={`w-screen h-screen font-silk z-10`}>
       <div
         ref={ref}
         className="w-full h-screen overflow-y-auto overflow-x-hidden relative"
       >
-        <div className="w-full h-[500vh] flex flex-col justify-center items-center relative z-20 bg-yellow-300">
-          <motion.div className="fixed pointer-events-none top-0 left-0 w-full h-screen flex justify-center items-center bg-white">
+        <div className="w-full h-[500vh] flex flex-col relative z-20 bg-yellow-300">
+          <div className="sticky  pointer-events-none top-0 left-0 w-full h-screen flex justify-center items-center bg-white">
             <motion.div
               className={`w-3/4 h-4/6 transition-all duration-700 ease-in-out bg-black rounded-[3rem] relative flex flex-col justify-around p-4 items-center`}
               initial={{ opacity: 0 }}
@@ -188,7 +224,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ data }) => {
                 </motion.div>
               )}
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>
