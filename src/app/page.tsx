@@ -9,8 +9,8 @@ export default function Home() {
     <div className="w-screen h-screen overflow-y-auto overflow-x-hidden">
       <Scroll />
       <div>
-        <Navbar />
-        <Cursor />
+        <Navbar page={"CAMERAS"}/>
+        {/* <Cursor /> */}
         <Hero />
         <Printer />
         <Printer />
