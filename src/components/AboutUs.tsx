@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import MovingText from "./Zui";
 import { ParallaxDiv } from "./ZuiDiv";
+import { isDivInView } from "@/utils/isInView";
 
 const data:AboutUsProps[] = [
   {
@@ -65,23 +66,31 @@ const AboutUs = () => {
   const { scrollYProgress } = useScroll({ container: ref });
 
   useEffect(() => {
-    return scrollYProgress.onChange((progress) => {
-      const newIndex = Math.min(
-        Math.floor(progress * data.length),
-        data.length - 1
-      );
-      setCurrentIndex(newIndex);
-    });
+     
+        ref.current?.addEventListener("mousewheel",(e)=>{
+          if(!isDivInView(".about-us")){
+            window.scrollBy(e.deltaX, e.deltaY);
+            e.preventDefault();
+          }
+        })
+      return scrollYProgress.onChange((progress) => {
+          const newIndex = Math.min(
+            Math.floor(progress/1.1 * data.length),
+            data.length - 1
+          );
+          setCurrentIndex(newIndex);
+      });
+    
   }, [scrollYProgress, data.length]);
 
 
   return (
-    <div className={`w-screen h-screen font-silk z-10`}>
+    <div className={`about-us w-screen h-screen font-silk z-10`}>
       <div
         ref={ref}
         className="w-full h-screen overflow-y-auto overflow-x-hidden relative"
       >
-        <div className="w-full h-[500vh] flex flex-col relative z-20 bg-yellow-300">
+        <div className="w-full h-[600vh] flex flex-col relative z-20 bg-yellow-300">
           <div className="sticky  pointer-events-none top-0 left-0 w-full h-screen flex justify-center items-center bg-white">
             <motion.div
               className={`w-3/4 h-4/6 transition-all duration-700 ease-in-out bg-black rounded-[3rem] relative flex flex-col justify-around p-4 items-center`}

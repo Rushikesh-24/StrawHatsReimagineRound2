@@ -55,15 +55,12 @@ function Cameras() {
             const innerContainer = document.querySelector(".outscroll > div");
             container?.addEventListener("mousewheel",(evt:any)=>{
                     let ans = isDivInView(".outscroll");
-                    console.log(ans)
                     if(!ans || ((container.scrollLeft === (innerContainer.clientWidth - window.innerWidth) && evt.deltaY > 0) || container.scrollLeft === 0 && evt.deltaY < 0)){
                         window?.scrollBy(evt.deltaX, evt.deltaY);
                     }
                     if(ans){
-                        console.log("majak toh yeh hai ki ", ans, " hone ke bawajood chal ra hai")
                         container?.scrollBy(evt.deltaY, 0);
                         setScroll({scrollX:window.scrollX, max:container.clientWidth - window.innerWidth})
-                    
                     }
                 
             })
@@ -169,7 +166,7 @@ function Pic(){
 
     return(
         <>
-            <div onMouseEnter={()=>setIsHovering(true)} onMouseLeave={()=>setIsHovering(false)} className='bg-pic z-10 shrink select-none cursor-move absolute left-[25%] group w-[73.05vw] h-[63.675vw] lg:w-[48.7vw] lg:h-[42.45vw] font-silk text-black py-3 px-5'>
+            <div onMouseEnter={()=>setIsHovering(true)} onMouseLeave={()=>setIsHovering(false)} className='bg-pic z-10 shrink select-none cursor-move absolute left-[25%] group w-[73.05vw] h-[63.675vw] xl:w-[48.7vw] xl:h-[42.45vw] font-silk text-black py-3 px-5'>
                 <p className="text-[3.4rem] font-bold flex justify-between items-center">{isHovering ? cameras[0].name : "Interchangeable"}
                     <span className='hidden group-hover:flex gap-5 items-center '>
                         <button>{"<"}</button>

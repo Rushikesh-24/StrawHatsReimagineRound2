@@ -16,7 +16,7 @@ const Hero = () => {
   };
 
   return (
-    <div className={`h-screen w-screen flex bg-heroimage font-silk relative`}>
+    <div className={`h-screen w-screen flex  bg-heroimage font-silk relative`}>
       <ModelViewer/>
     </div>
 

@@ -221,13 +221,14 @@ export const MeshComponent: React.FC<MeshComponentProps> = ({
   const gltf = useLoader(GLTFLoader, fileUrl, () => onLoad());
   const meshRef = useRef<THREE.Object3D>(null);
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
-
+  let background:HTMLElement | null;
   const spring = useSpring({
     to: { rotationY: rotation.y, rotationZ: rotation.z },
     config: { mass: 1, tension: 170, friction: 26 },
   });
 
   useEffect(() => {
+    background = document.querySelector(".bg-heroimage");
     const handleMouseMove = (event: { clientX: number; clientY: number }) => {
       mouse.current.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -239,9 +240,14 @@ export const MeshComponent: React.FC<MeshComponentProps> = ({
   }, []);
 
   useFrame(() => {
+    //if(background?.style){
+      requestAnimationFrame(()=>{
+        if(background) background.style.backgroundPosition = `top ${mouse.current.y*10}px left ${mouse.current.x*10}px`
+      })
+    //}
     if (meshRef.current && rotation.y === 40.1 && rotation.z === -0.25) {
       meshRef.current.position.x = mouse.current.x * 0.2;
-      meshRef.current.position.y = mouse.current.y * 0.2;
+      meshRef.current.position.y = mouse.current.y * 0.2;      
     } else if (rotation.y !== 40.1 && rotation.z !== -0.25 && meshRef.current) {
       meshRef.current.position.x = 0;
       meshRef.current.position.y = 0;
@@ -313,7 +319,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
       >
         <Canvas camera={{ position: [50, 20, -55], fov: 3 }} className="">
           <Suspense fallback={null}>
-            <ambientLight intensity={1} />
+            <ambientLight intensity={1}/>
             <directionalLight position={[0, 1, 0]} intensity={10} />
             <MeshComponent rotation={rotation} onLoad={handleModelLoad} />
           </Suspense>
@@ -334,7 +340,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
         </motion.div>
       )}
       <div
-        className="hover-detect flex justify-start items-center bg-opacity-40 border-white border w-80 h-20 group cursor-pointer absolute bottom-10 right-10 overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black text-white"
+        className="hover-detect flex justify-start items-center bg-opacity-40 border-white border w-[22rem] h-20 group cursor-pointer absolute bottom-10 right-10 overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black text-white"
         onClick={handleRotationChange}
       >
         <div className="w-0 group-hover:w-1/4 h-full duration-500 group-hover:flex group-hover:translate-y-0 group-hover:translate-x-0 translate-y-full -translate-x-full justify-center items-center stroke-black bg-white  ">
@@ -363,7 +369,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
             />
           </svg>
         </div>
-        <div className="text-5xl w-3/4 h-full flex justify-center items-center bg-opacity-40 group-hover:text-black group-hover:bg-white duration-100">
+        <div className="text-5xl w-3/4 mx-2 h-full flex justify-center items-center bg-opacity-40 group-hover:text-black group-hover:bg-white duration-100">
           EXPLORE
         </div>
         <div className="w-1/4 h-full group-hover:w-[0%] overflow-hidden flex justify-center items-center stroke-black bg-white  group-hover:stroke-white">

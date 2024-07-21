@@ -154,17 +154,19 @@ body {
 }*/
 
 .bg-heroimage {
-  background-image: url("/herobg.svg");
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/herobg.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  backdrop-filter: blur(100px);
+  
+
 }
 
 .bg-concrete {
   background-image: url("/concrete.svg");
   background-size: contain;
   background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 .bg-pic {
@@ -233,3 +235,6 @@ body {
   font-weight: bold;
   color: #1CAAD9;
 }
+
+
+
