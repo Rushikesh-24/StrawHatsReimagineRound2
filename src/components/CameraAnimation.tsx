@@ -3,7 +3,7 @@ import { AnimationControls, motion, useAnimation } from "framer-motion";
 import { ReactNode, useEffect, useState } from "react";
 import Image from "next/image";
 import camera from "../../public/canon.png";
-import { Sacramento } from "next/font/google";
+import { Sacramento} from "next/font/google";
 import { TextGenerateEffect } from "./TextGenerate";
 
 const font = Sacramento({
