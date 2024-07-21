@@ -16,98 +16,77 @@ const vibes = Vibes({
   subsets: ["latin"],
 });
 
-interface MeshComponentProps {
-  rotation: { y: number; z: number };
-  onLoad: () => void;
-}
 
 interface ModelViewerProps {}
 
-export const MeshComponent: React.FC<MeshComponentProps> = ({
-  rotation,
-  onLoad,
-}) => {
+const  MeshComponent2: React.FC<{ bool: boolean; onLoad: () => void, }> = ({ bool, onLoad})=> {
   const fileUrl = "canon1.glb";
-  const gltf = useLoader(GLTFLoader, fileUrl, () => onLoad());
-  const meshRef = useRef<THREE.Object3D>(null);
-  const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
-  let background:HTMLElement | null;
-  const spring = useSpring({
-    to: { rotationY: rotation.y, rotationZ: rotation.z },
-    config: { mass: 1, tension: 170, friction: 26 },
-  });
+  const gltf = useLoader(GLTFLoader, fileUrl,()=>onLoad());
+  const meshRef = useRef<THREE.Mesh>(null);
+  const maxCameraZ = 50;
+  const fixedRotationY = -2.4;
+  useFrame(({ clock, camera }) => {
+    const t = clock.getElapsedTime();
+    const scrollY = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    let cameraZ = Math.max(50, 100 - (t * 20));
 
-  useEffect(() => {
-    background = document.querySelector(".bg-heroimage");
-    const handleMouseMove = (event: { clientX: number; clientY: number }) => {
-      mouse.current.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+    if (bool) {
+      camera.position.z = THREE.MathUtils.lerp(camera.position.z, maxCameraZ, 0.1);
+      camera.lookAt(0, 0, 0);
+      if (meshRef.current) {
+        meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, fixedRotationY, 0.1);
+      }
+    } else {
+      camera.position.z = cameraZ;
+      camera.lookAt(0, 0, 0);
 
-  useFrame(() => {
-    //if(background?.style){
-      requestAnimationFrame(()=>{
-        if(background) background.style.backgroundPosition = `top ${mouse.current.y*10}px left ${mouse.current.x*10}px`
-      })
-    //}
-    if (meshRef.current && rotation.y === 40.1 && rotation.z === -0.25) {
-      meshRef.current.position.x = mouse.current.x * 0.2;
-      meshRef.current.position.y = mouse.current.y * 0.2;      
-    } else if (rotation.y !== 40.1 && rotation.z !== -0.25 && meshRef.current) {
-      meshRef.current.position.x = 0;
-      meshRef.current.position.y = 0;
+      if (cameraZ === 50 && meshRef.current) {
+        meshRef.current.rotation.y -= 0.01 - scrollY;
+      }
     }
   });
 
   return gltf ? (
-    <>
-      {/*@ts-ignore */}
-      <a.primitive
-        object={gltf.scene}
-        ref={meshRef}
-        position={[50, 50, 0]}
-        rotation-x={69.5}
-        rotation-y={spring.rotationY}
-        rotation-z={spring.rotationZ}
-      />
-    </>
+    <mesh ref={meshRef}>
+      <primitive object={gltf.scene} />
+    </mesh>
   ) : null;
-};
+}
 
 export const ModelViewer: React.FC<ModelViewerProps> = () => {
   const [animationComplete, setAnimationComplete] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [rotation, setRotation] = useState({ y: 40.1, z: -0.25 });
+  const [bool, setbool] = useState(false)
+  const lightRef = useRef<THREE.SpotLight>(null);
 
   const handleRotationChange = () => {
-    if (rotation.y === 43.1 && rotation.z === 0.25) {
-      setAnimationComplete(false);
-      setRotation({ y: 40.1, z: -0.25 });
-    } else {
-      setRotation({ y: 43.1, z: 0.25 });
-    }
+    setbool(!bool);
+    setAnimationComplete(!bool);
   };
-
-  const spring = useSpring({
-    to: { y: rotation.y, z: rotation.z },
-    config: { mass: 1, tension: 170, friction: 26 },
-    onRest: () => {
-      if (rotation.y === 40.1 && rotation.z === -0.25) {
-        setAnimationComplete(false);
-      } else {
-        setAnimationComplete(true);
-      }
-    },
-  });
-
   const handleModelLoad = () => {
     setLoading(false);
   };
+  const handleMouseMove = (event: MouseEvent) => {
+    if (lightRef.current) {
+      const { clientX, clientY } = event;
+      lightRef.current.position.set(clientX/10,clientY/10, 30);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+  
   return (
     <div className="relative z-20 w-screen h-screen overflow-hidden">
       {loading && (
@@ -124,24 +103,23 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
         </div>
       )}
       <motion.div
-        className={`md:flex justify-center items-center lg:h-screen lg:w-screen md:w-[80vw] md:h-[80vh] sm:w-[80vw] sm:h-[60vh] h-[30vh] w-[80vw] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden `}
-        // ${animationComplete?"scale-[300] transition-all ease-in-out duration-[2s] delay-[3s]":""}
+        className={`flex justify-center items-center h-screen w-screen absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden pointer-events-none`}
       >
-        <Canvas camera={{ position: [50, 20, -55], fov: 3 }} className="" shadows="variance">
+        <Canvas camera={{ position: [50, 20, -55], fov: 3 }} className="" shadows="basic">
           <Suspense fallback={null}>
-            <ambientLight intensity={1}/>
+            <ambientLight intensity={1} />
             <directionalLight position={[0, 1, 0]} intensity={10} />
-            <MeshComponent rotation={rotation} onLoad={handleModelLoad} />
-            <spotLight position={[-20, 20, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+            <MeshComponent2 bool={bool} onLoad={handleModelLoad}/>
+            <spotLight position={[-20, 20, 40]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} ref={lightRef}/>
           </Suspense>
         </Canvas>
       </motion.div>
       {animationComplete && (
         <motion.div
-          className={`absolute bg-black xl:w-[17.8rem] xl:h-[14rem] lg:w-[16rem] lg:h-[13.5rem] md:w-56 md:h-48 sm:top-[54%] sm:w-40 sm:h-32 w-24 h-20 left-[43%] top-[52%] lg:top-[55.8%] lg:left-[42%] sm:left-[41.2%] transform -translate-x-1/2 -translate-y-1/2 -rotate-1 `}
+          className={`absolute bg-black xl:w-[19rem] xl:h-[16rem] xl:left-[44%] xl:top-[63%] lg:w-[20rem] lg:h-[15.5rem] lg:top-[62%] md:w-[17rem] md:h-52 md:top-[59%] sm:top-[57%] sm:w-44 sm:h-36 w-24 h-20 left-[43%] top-[54%] lg:left-[42%] sm:left-[41.2%] transform -translate-x-1/2 -translate-y-1/2 -rotate-1 `}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: easeInOut }}
+          transition={{ duration: 0.6,delay:0.4, ease: "easeInOut" }}
         >
           <Image
             src={canonImage}
@@ -181,7 +159,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
             />
           </svg>
         </div>
-        <div className="lg:text-5xl sm:text-3xl text-xl w-3/4 mx-2 h-full flex justify-center items-center bg-opacity-40 group-hover:text-black group-hover:bg-white duration-100">
+        <div className="lg:text-5xl sm:text-3xl text-xl w-3/4 h-full flex justify-center items-center bg-opacity-40 group-hover:text-black group-hover:bg-white duration-100">
           EXPLORE
         </div>
         <div className="w-1/4 h-full group-hover:w-[0%] overflow-hidden flex justify-center items-center stroke-black bg-white  group-hover:stroke-white">
