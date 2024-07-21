@@ -63,7 +63,6 @@ const ParallaxDivs: FC<ParallaxDivsProps> = ({ baseVelocity = 100, children }) =
               className="md:w-full h-full flex justify-between mx-4 space-x-4 md:space-x-8 gap-2"
             >
               {children}
-              {children}
             </motion.div>
           ))}
       </motion.div>
@@ -74,7 +73,7 @@ const ParallaxDivs: FC<ParallaxDivsProps> = ({ baseVelocity = 100, children }) =
 export const ParallaxDiv: FC = () => {
   return (
     <div className="w-full h-[40%] pointer-events-auto flex justify-center items-center z-[999]">
-      <ParallaxDivs baseVelocity={10}>
+      <ParallaxDivs baseVelocity={-10}>
         <motion.div
           className="size-64 flex flex-col relative group justify-center items-center"
           whileHover={{ scale: 1.2 }}

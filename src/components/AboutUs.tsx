@@ -66,21 +66,29 @@ const AboutUs = () => {
   const { scrollYProgress } = useScroll({ container: ref });
 
   useEffect(() => {
-     
-        ref.current?.addEventListener("mousewheel",(e)=>{
-          if(!isDivInView(".about-us")){
-            window.scrollBy(e.deltaX, e.deltaY);
-            e.preventDefault();
-          }
-        })
-      return scrollYProgress.onChange((progress) => {
-          const newIndex = Math.min(
-            Math.floor(progress/1.1 * data.length),
-            data.length - 1
-          );
-          setCurrentIndex(newIndex);
-      });
-    
+    const handleWheel = (e: WheelEvent) => {
+      if (!isDivInView(".about-us")) {
+        window.scrollBy(e.deltaX, e.deltaY);
+        e.preventDefault();
+      }
+    };
+
+    const container = ref.current;
+    container?.addEventListener("wheel", handleWheel);
+
+    return () => {
+      container?.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
+  useEffect(() => {
+    return scrollYProgress.onChange((progress) => {
+      const newIndex = Math.min(
+        Math.floor((progress / 1.1) * data.length),
+        data.length - 1
+      );
+      setCurrentIndex(newIndex);
+    });
   }, [scrollYProgress, data.length]);
 
 
