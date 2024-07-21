@@ -52,7 +52,6 @@ export const MeshComponent: React.FC<MeshComponentProps> = ({
     if (meshRef.current && rotation.y === 40.1 && rotation.z === -0.25) {
       meshRef.current.position.x = mouse.current.x * 0.2;
       meshRef.current.position.y = mouse.current.y * 0.2;
-      console.log(mouse.current.x,mouse.current.y);
     } else if (rotation.y !== 40.1 && rotation.z !== -0.25 && meshRef.current) {
       meshRef.current.position.x = 0;
       meshRef.current.position.y = 0;

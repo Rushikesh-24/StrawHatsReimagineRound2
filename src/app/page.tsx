@@ -3,18 +3,21 @@ import Scroll from "@/components/Scroll";
 import Cursor from "@/components/Cursor";
 import Navbar from "@/components/Navbar";
 import Printer from "@/components/Printers";
+import Cameras from "@/components/Cameras";
+import AboutUs from "@/components/AboutUs";
+
 
 export default function Home() {
   return (
-    <div className="w-screen h-screen overflow-y-auto overflow-x-hidden">
+    <div className="">
       <Scroll />
       <div>
         <Navbar />
         <Cursor />
         <Hero />
         <Printer />
-        <Printer />
-        <Printer />
+        <Cameras />
+        <AboutUs />
       </div>
     </div>
   );
