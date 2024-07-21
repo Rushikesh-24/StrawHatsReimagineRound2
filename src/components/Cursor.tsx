@@ -37,7 +37,7 @@ function Cursor() {
   
   
   return (
-    <div id={"cursor"} className={`${cursorState} pointer-events-none overflow-hidden outline outline-1 outline-[#D9D9D9]  -translate-x-1/2 -translate-y-1/2 size-20 fixed rounded-full duration-100 z-50`}>
+    <div id={"cursor"} className={`${cursorState} pointer-events-none overflow-hidden outline outline-1 outline-[#D9D9D9]  -translate-x-1/2 -translate-y-1/2 size-20 fixed rounded-full duration-100 z-50 ease-in-out transition-all hidden md:flex`}>
         <svg id="t1" width="102" height="49" viewBox="0 0 102 49" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fillRule="evenodd" clipRule="evenodd" d="M101.781 47.9891L0.162598 48.6698L25.7605 0.204102C58.3995 2.33882 86.5167 21.0443 101.781 47.9891Z" fill="#D9D9D9"/>
         </svg>

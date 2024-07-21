@@ -8,6 +8,8 @@ import * as THREE from "three";
 import { useSpring, a } from "@react-spring/three";
 import { easeInOut, motion } from "framer-motion";
 import { Vibes } from "next/font/google";
+import Image from "next/image";
+import canonImage from '../../public/canonBg.png'
 
 const vibes = Vibes({
   weight: ["400"],
@@ -131,15 +133,16 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
       </motion.div>
       {animationComplete && (
         <motion.div
-          className={`absolute bg-black lg:w-[17.8rem] lg:h-[14rem] md:w-56 md:h-48 sm:top-[54%] sm:w-40 sm:h-32 w-24 h-20 left-[43%] top-[52%] lg:top-[55.8%] lg:left-[42%] sm:left-[41.2%] transform -translate-x-1/2 -translate-y-1/2 -rotate-1 `}
+          className={`absolute bg-black xl:w-[17.8rem] xl:h-[14rem] lg:w-[16rem] lg:h-[13.5rem] md:w-56 md:h-48 sm:top-[54%] sm:w-40 sm:h-32 w-24 h-20 left-[43%] top-[52%] lg:top-[55.8%] lg:left-[42%] sm:left-[41.2%] transform -translate-x-1/2 -translate-y-1/2 -rotate-1 `}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: easeInOut }}
         >
-          <motion.img
-            src="/canonBg.png"
+          <Image
+            src={canonImage}
             alt="Background"
             className={`w-full h-full object-cover`}
+            placeholder="blur"
           />
         </motion.div>
       )}
