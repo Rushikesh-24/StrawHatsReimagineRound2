@@ -22,27 +22,6 @@ const randomLetter = () => {
   return letters[Math.floor(Math.random() * letters.length)];
 };
 
-const slides = [
-  {
-    content: [
-      "Print, Scan, Copy",
-      "Print Speed (A4, ISO): up to 11 / 6 images per minute (mono/colour)",
-      "USB 2.0",
-      "Recommended Monthly Print Volume: 150 - 1 500 pages",
-    ],
-    image: "/printer1straight.png",
-  },
-  {
-    content: [
-      "High Resolution Printing",
-      "Wireless Connectivity",
-      "Automatic Duplex Printing",
-      "Energy Efficient",
-    ],
-    image: "/printer2straight.png",
-  },
-];
-
 const PrinterCards = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [text, setText] = useState("PIXMA".split("").map(() => randomLetter()));
@@ -56,16 +35,43 @@ const PrinterCards = () => {
   const [isHamOpen, setIsHamOpen] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
 
+  const optimizedSlides = useMemo(() => {
+    const slides = [
+      {
+        content: [
+          "Print, Scan, Copy",
+          "Print Speed (A4, ISO): up to 11 / 6 images per minute (mono/colour)",
+          "USB 2.0",
+          "Recommended Monthly Print Volume: 150 - 1 500 pages",
+        ],
+        image: "/printer1straight.png",
+      },
+      {
+        content: [
+          "High Resolution Printing",
+          "Wireless Connectivity",
+          "Automatic Duplex Printing",
+          "Energy Efficient",
+        ],
+        image: "/printer2straight.png",
+      },
+    ];
+    return slides;
+  }, []);
+
   const handleClick = () => {
     setIsOpen(true);
   };
 
   const handleNext = () => {
-    setSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    setSlideIndex((prevIndex) => (prevIndex + 1) % optimizedSlides.length);
   };
 
   const handlePrevious = () => {
-    setSlideIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
+    setSlideIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + optimizedSlides.length) % optimizedSlides.length
+    );
   };
 
   useEffect(() => {
@@ -185,68 +191,70 @@ const PrinterCards = () => {
 
   return (
     <div
-      className={`overflow-x-hidden overflow-y-hidden sm:h-[100vh] h-[90vh] w-[95vw] bg-white rounded-3xl flex flex-col items-center relative ${
+      className={`relative sm:h-[100vh] h-[90vh] w-[95vw] bg-white rounded-3xl ${
         isOpen ? "px-0 sm:pt-0 pt-10" : "px-5 sm:pt-0 pt-5"
       }`}
       onMouseMove={handleMouseMove}
     >
       <div
         className={`${silkScreen.className} font-normal text-left ${
-          isOpen ? "sm:text-[10rem]" : "sm:text-[14.5rem]"
-        } text-5xl text-white mix-blend-difference w-full z-10`}
+          isOpen ? "sm:text-9xl" : "sm:text-[10rem]"
+        } text-5xl text-white mix-blend-difference w-full z-10 absolute left-0 top-0`}
         style={{ textAlign: "left" }}
       >
         {text.join("")}
       </div>
-      <div className="flex justify-center items-center mt-8">
+      <div
+        className="size-[30rem] sm:size-[35rem] absolute bg-blue-300"
+        style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+      >
         <motion.div
-          className="relative -top-[10%] sm:-top-[22%] size-[35rem] rounded-full items-center justify-center border-b-8 border-black -rotate-[30deg] sm:flex hidden"
+          className="size-[35rem] rounded-full items-center justify-center border-b-8 border-black -rotate-[30deg] sm:flex hidden"
           animate={pageTransition ? "" : controls}
         ></motion.div>
-        <motion.div
-          className={`sm:size-[30rem] size-96 rounded-full bg-black flex flex-col justify-center items-center absolute bottom-[4.8rem] sm:bottom-10`}
-          onClick={handleClick}
-          animate={isOpen ? "" : Zoomcontrols}
+      <motion.div
+        className={`absolute sm:size-[30rem] size-96 rounded-full bg-black flex flex-col justify-center items-center`}
+        onClick={handleClick}
+        style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+        animate={isOpen ? "" : Zoomcontrols}
+      >
+        <img
+          src="/printer1.png"
+          alt=""
+          className={`sm:size-96 size-40 ${isOpen ? "hidden" : ""}`}
+        />
+        <p
+          className={`${silkScreen.className} text-white ${isOpen ? "hidden" : ""}`}
         >
-          <img
-            src="/printer1.png"
-            alt=""
-            className={`sm:size-96 size-40 ${isOpen ? "hidden" : "flex"}`}
-          />
-          <p
-            className={`${silkScreen.className} text-white ${
-              isOpen ? "hidden" : "flex"
-            }`}
-          >
-            CLICK TO EXPLORE
-          </p>
-        </motion.div>
+          CLICK TO EXPLORE
+        </p>
+      </motion.div>
       </div>
       <div
         className={`${silkScreen.className} font-normal text-right text-black w-full absolute bottom-5 sm:right-5 right-2`}
       >
         SCROLL TO SEE OTHER CATEGORIES
       </div>
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isOpen && pageTransition && (
           <>
             <motion.div
               className="absolute bottom-0 -left-10 transform z-20 bg-white h-[75vh] w-[35vw] sm:flex hidden flex-col gap-14 items-center pt-14"
-              initial={{ z: -20, opacity: 0 }}
-              animate={{ z: 0, opacity: 1 }}
-              exit={{ z: -20, opacity: 0 }}
+              initial={{ opacity: 0, scale: 0, x: "-100%", y: "100%" }}
+              animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+              exit={{ opacity: 0, scale: 0, x: "-100%", y: "100%" }}
               transition={{ delay: 0.3, ease: easeInOut }}
             >
-              <AnimatePresence>
+              <AnimatePresence mode="wait">
                 <motion.img
                   key={slideIndex}
-                  src={slides[slideIndex].image}
+                  src={optimizedSlides[slideIndex].image}
                   alt=""
-                  className="size-80"
-                  initial={{ opacity: 0, x: 50, y: 1000 }}
-                  animate={{ opacity: [0, 0, 0, 0, 1], x: 0, y: 0 }}
-                  exit={{ opacity: 0, x: -50, y: 0 }}
-                  transition={{ duration: 1 }}
+                  className="size-80 placeholder:blur"
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: [0, 0, 1, 1, 1], y: 0 }}
+                  exit={{ opacity: 0, z: -50 }}
+                  transition={{ duration: 0.5 }}
                 />
               </AnimatePresence>
               <div
@@ -261,10 +269,10 @@ const PrinterCards = () => {
             </motion.div>
             <motion.div
               className="absolute sm:top-0 top-[3rem] sm:-right-10 right-2 sm:bg-white sm:h-32 sm:w-[40vw] flex justify-end items-center pr-5 sm:pr-20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ delay: 0.3, ease: easeInOut }}
+              initial={{ opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: "100%" }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               <motion.button
                 onClick={() => {
@@ -357,23 +365,29 @@ const PrinterCards = () => {
               >
                 G4770
               </div>
-              <AnimatePresence>
+              <AnimatePresence mode="wait">
                 <motion.div
                   key={slideIndex}
-                  className={`flex flex-col sm:gap-5 gap-2 sm:text-2xl text-xl ${silkScreen.className} font-normal text-left h-40 w-full sm:mt-20 pl-4`}
-                  initial={{ opacity: 0, x: 50, y: -1000 }}
-                  animate={{ opacity: [0, 1], x: 0,y: 0 }}
-                  exit={{ opacity: 0, x: -50, y: 0 }}
+                  className={`sm:flex hidden no-animation flex-col sm:gap-5 gap-2 sm:text-2xl text-xl ${silkScreen.className} font-normal sm:text-left text-center h-40 w-full sm:mt-20 pl-4`}
+                  initial={{ opacity: 0, z: -50 }}
+                  animate={{ opacity: [0, 1], z: 0 }}
+                  exit={{ opacity: 0, z: -50 }}
                   transition={{ duration: 1 }}
                 >
-                  {slides[slideIndex].content.map((text, index) => (
+                  {optimizedSlides[slideIndex].content.map((text, index) => (
                     <p key={index}>{text}</p>
                   ))}
                 </motion.div>
               </AnimatePresence>
               <div className="w-full h-28 sm:flex hidden justify-end items-center mt-16 pr-16">
-                <FaCaretLeft className="text-6xl cursor-pointer" onClick={handlePrevious} />
-                <FaCaretRight className="text-6xl cursor-pointer" onClick={handleNext} />
+                <FaCaretLeft
+                  className="text-6xl cursor-pointer"
+                  onClick={handlePrevious}
+                />
+                <FaCaretRight
+                  className="text-6xl cursor-pointer"
+                  onClick={handleNext}
+                />
               </div>
             </motion.div>
           </>
