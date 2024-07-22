@@ -5,11 +5,11 @@ import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { Suspense } from "react";
 import * as THREE from "three";
-import { useSpring, a } from "@react-spring/three";
 import { easeInOut, motion } from "framer-motion";
 import { Vibes } from "next/font/google";
 import Image from "next/image";
 import canonImage from '../../public/canonBg.png'
+import Link from "next/link";
 
 const vibes = Vibes({
   weight: ["400"],
@@ -30,7 +30,7 @@ const  MeshComponent2: React.FC<{ bool: boolean; onLoad: () => void, }> = ({ boo
     const scrollY = window.scrollY / (document.body.scrollHeight - window.innerHeight);
     let cameraZ = Math.max(50, 100 - (t * 20));
   
-    const maxRotationSpeed = 0.05; // Define a maximum rotation speed
+    const maxRotationSpeed = 0.02; // Define a maximum rotation speed
   
     if (bool) {
       camera.position.z = THREE.MathUtils.lerp(camera.position.z, maxCameraZ, 0.1);
@@ -44,7 +44,6 @@ const  MeshComponent2: React.FC<{ bool: boolean; onLoad: () => void, }> = ({ boo
   
       if (cameraZ === 50 && meshRef.current) {
         let rotationChange = -0.01 - scrollY;
-        // Clamp the rotation change to the maximum rotation speed
         rotationChange = THREE.MathUtils.clamp(rotationChange, -maxRotationSpeed, maxRotationSpeed);
         meshRef.current.rotation.y += rotationChange;
       }
@@ -93,9 +92,9 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
   }, []);
   
   return (
-    <div className="relative z-20 w-screen h-screen overflow-hidden">
+    <div className="relative z-20 size-full overflow-hidden">
       {loading && (
-        <div className="w-screen h-screen justify-center items-center flex">
+        <div className="size-full justify-center items-center flex">
           <div className="w-2/5 h-2/5 flex justify-center items-center relative overflow-hidden animate-pulse">
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute top-0 left-0 border-t-2 border-l-2 border-white w-12 h-12"></div>
@@ -108,7 +107,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
         </div>
       )}
       <motion.div
-        className={`md:flex justify-center items-center lg:h-screen lg:w-screen md:w-[80vw] md:h-[80vh] sm:w-[80vw] sm:h-[60vh] h-[30vh] w-[80vw] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden`}
+        className={`md:flex justify-center items-center lg:size-full md:w-[80vw] md:h-[80vh] sm:w-[80vw] sm:h-[60vh] h-[30vh] w-[80vw] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden`}
       >
         <Canvas camera={{ position: [50, 20, -55], fov: 3 }} className="" shadows="basic">
           <Suspense fallback={null}>
@@ -134,8 +133,9 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
           />
         </motion.div>
       )}
-      <div
-        className="hover-detect flex justify-start items-center bg-opacity-40 border-white border lg:w-80 lg:h-20 sm:w-60 sm:h-16 w-36  group cursor-pointer absolute lg:bottom-20 lg:right-24 sm:bottom-14 sm:right-16 right-10 bottom-10 rounded-lg overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black text-white"
+      <Link
+      href={'/'}
+        className="hover-detect cursor-none flex justify-start items-center bg-opacity-40 border-white border lg:w-80 lg:h-20 sm:w-60 sm:h-16 w-36  group view absolute lg:bottom-20 lg:right-24 sm:bottom-14 sm:right-16 right-10 bottom-10 overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black text-white"
         onClick={handleRotationChange}
       >
         <div className="w-0 group-hover:w-1/4 h-full duration-500 group-hover:flex group-hover:translate-y-0 group-hover:translate-x-0 translate-y-full -translate-x-full justify-center items-center stroke-black bg-white  ">
@@ -193,7 +193,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
             />
           </svg>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };
