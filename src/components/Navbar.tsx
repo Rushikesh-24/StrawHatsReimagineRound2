@@ -3,20 +3,14 @@ import { Silkscreen } from "next/font/google";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const silkScreen = Silkscreen({
-  weight: ["400", "700"],
-  display: "swap",
-  subsets: ["latin"],
-});
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <div className="flex justify-between items-center fixed z-10 sm:px-14 px-2 w-full sm:h-24 h-16 ">
+      <div className="flex justify-between items-center fixed z-10 sm:px-14 px-2 w-full sm:h-24 h-16">
         <div
-          className={`${silkScreen.className} font-normal sm:text-7xl text-3xl text-center text-white`}
+          className={`font-silk font-normal sm:text-7xl text-3xl text-center text-white`}
         >
           CAMERAS
         </div>

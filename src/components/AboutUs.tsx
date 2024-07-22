@@ -93,7 +93,7 @@ const AboutUs = () => {
 
 
   return (
-    <div className={`about-us w-screen h-screen font-silk z-10`}>
+    <div data-scroll-section className={`about-us w-screen h-screen font-silk z-10`}>
       <div
         ref={ref}
         className="w-full h-screen overflow-y-auto overflow-x-hidden relative"

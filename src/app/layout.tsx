@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Silkscreen } from "next/font/google"
+import { Inclusive_Sans, Silkscreen } from "next/font/google"
 import "./globals.css";
 import CameraAnimation from "@/components/CameraAnimation";
 
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const silkScreen = Silkscreen({
-  weight: ["400", "700"],
+  weight: ["400"],
   display: "swap",
   subsets: ["latin"],
   variable:"--font-silk"

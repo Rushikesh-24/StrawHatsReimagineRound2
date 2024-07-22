@@ -7,7 +7,7 @@ import { TextGenerateEffect } from "./TextGenerate";
 const Printer = () => {
   
   return (
-    <div className="flex w-screen">
+    <div data-scroll-section className="flex w-screen">
       <div
         className={`h-screen w-1/2 flex bg-print1 bg-fixed font-silk relative`}
       >
