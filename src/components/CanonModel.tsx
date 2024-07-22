@@ -29,7 +29,9 @@ const  MeshComponent2: React.FC<{ bool: boolean; onLoad: () => void, }> = ({ boo
     const t = clock.getElapsedTime();
     const scrollY = window.scrollY / (document.body.scrollHeight - window.innerHeight);
     let cameraZ = Math.max(50, 100 - (t * 20));
-
+  
+    const maxRotationSpeed = 0.05; // Define a maximum rotation speed
+  
     if (bool) {
       camera.position.z = THREE.MathUtils.lerp(camera.position.z, maxCameraZ, 0.1);
       camera.lookAt(0, 0, 0);
@@ -39,9 +41,12 @@ const  MeshComponent2: React.FC<{ bool: boolean; onLoad: () => void, }> = ({ boo
     } else {
       camera.position.z = cameraZ;
       camera.lookAt(0, 0, 0);
-
+  
       if (cameraZ === 50 && meshRef.current) {
-        meshRef.current.rotation.y -= 0.01 - scrollY;
+        let rotationChange = -0.01 - scrollY;
+        // Clamp the rotation change to the maximum rotation speed
+        rotationChange = THREE.MathUtils.clamp(rotationChange, -maxRotationSpeed, maxRotationSpeed);
+        meshRef.current.rotation.y += rotationChange;
       }
     }
   });
@@ -110,7 +115,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
             <ambientLight intensity={1} />
             <directionalLight position={[0, 1, 0]} intensity={10} />
             <MeshComponent2 bool={bool} onLoad={handleModelLoad}/>
-            <spotLight position={[-20, 20, 40]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} ref={lightRef}/>
+            <spotLight position={[-20, 20, 40]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} ref={lightRef} color={"white"} castShadow={true}/>
           </Suspense>
         </Canvas>
       </motion.div>
