@@ -1,8 +1,7 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Silkscreen } from "next/font/google"
 import { ModelViewer } from "./CanonModel";
-import dynamic from "next/dynamic";
 
 const silkScreen = Silkscreen({
   weight: ["400", "700"],
@@ -18,8 +17,7 @@ const Hero = () => {
   return (
     <div data-scroll-section className={`h-screen w-screen flex  bg-heroimage font-silk relative`}>
       <ModelViewer/>
-    </div>
-
+      </div>
   );
 };
 

@@ -1,6 +1,5 @@
 'use client'
-import React, { useEffect } from "react";
-import { Silkscreen } from "next/font/google"
+import React from "react";
 import { TextGenerateEffect } from "./TextGenerate";
 
 
