@@ -8,9 +8,9 @@ import Cameras from "@/components/Cameras";
 import AboutUs from "@/components/AboutUs";
 import { use, useEffect, useRef, useState } from "react";
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
+import Products from "@/components/Products";
 
 export default function Home() {
-  const [scrollLock, setScrollLock] = useState(false)
   const containerRef = useRef(null)
 
   return (
@@ -36,6 +36,7 @@ export default function Home() {
       <Cursor />
       <Hero />
       <Printer />
+      <Products />
       <Cameras />
       <AboutUs />
     </div>
