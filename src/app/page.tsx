@@ -8,6 +8,7 @@ import Cameras from "@/components/Cameras";
 import AboutUs from "@/components/AboutUs";
 import { use, useEffect, useRef, useState } from "react";
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
+import Cursor2 from "@/components/Cursor2";
 
 export default function Home() {
   const containerRef = useRef(null)
@@ -32,10 +33,10 @@ export default function Home() {
     <div data-scroll-container ref={containerRef} className="">
       
       <Navbar />
-      <Cursor />
       <Hero />
       <Printer />
       {/*<Products />*/}
+      <Cursor2/>
       <Cameras />
       <AboutUs />
     </div>
