@@ -14,11 +14,7 @@ const Cursor2 = () => {
       const link = event.target as HTMLElement;
       if(link.classList.contains('view')){
         gsap.to(cursor,{scale:4})
-        if (cursorText) {
-          cursorText.style.display = 'block';
-        }else{
-          gsap.to(cursor,{scale:4})
-        }
+        cursorText.style.display = 'block';
       }
     }
     const onMouseLeaveLink = () => {
@@ -32,8 +28,8 @@ const Cursor2 = () => {
     })
   })
   return (
-    <div id='custom-cursor' className='rushi-cursor'>
-        <span className='rushi-cursor-text'>View</span>
+    <div id='custom-cursor' className='rushi-cursor hidden md:flex'>
+        <span className='rushi-cursor-text mix-blend-difference font-sans whitespace-nowrap'>View</span>
     </div>
   )
 }

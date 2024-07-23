@@ -62,21 +62,21 @@ const AboutUs = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ container: ref });
 
-  const handleWheel = useCallback((e: WheelEvent) => {
-    if (!isDivInView(".about-us")) {
-      window.scrollBy(e.deltaX, e.deltaY);
-      e.preventDefault();
-    }
-  }, []);
-
   useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (!isDivInView(".about-us")) {
+        window.scrollBy(e.deltaX, e.deltaY);
+        e.preventDefault();
+      }
+    };
+
     const container = ref.current;
     container?.addEventListener("wheel", handleWheel);
 
     return () => {
       container?.removeEventListener("wheel", handleWheel);
     };
-  }, [handleWheel]);
+  }, []);
 
   useEffect(() => {
     return scrollYProgress.onChange((progress) => {
@@ -86,7 +86,7 @@ const AboutUs = () => {
       );
       setCurrentIndex(newIndex);
     });
-  }, [scrollYProgress]);
+  }, [scrollYProgress, data.length]);
 
   return (
     <div data-scroll-section className={`about-us w-screen h-screen font-silk z-10`}>
