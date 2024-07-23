@@ -1,14 +1,13 @@
 "use client"
 import Hero from "@/components/Hero";
+import Scroll from "@/components/Scroll";
 import Cursor from "@/components/Cursor";
 import Navbar from "@/components/Navbar";
+import Printer from "@/components/Printers";
+import Cameras from "@/components/Cameras";
 import AboutUs from "@/components/AboutUs";
 import { use, useEffect, useRef, useState } from "react";
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
-import Products from "@/components/Products";
-import Printer from "@/components/Printers";
-import Cameras from "@/components/Cameras";
-import Cursor2 from "@/components/RushiCursor";
 
 export default function Home() {
   const containerRef = useRef(null)
@@ -33,11 +32,10 @@ export default function Home() {
     <div data-scroll-container ref={containerRef} className="">
       
       <Navbar />
-      {/* <Cursor /> */}
-      <Cursor2/>
+      <Cursor />
       <Hero />
       <Printer />
-      <Products />
+      {/*<Products />*/}
       <Cameras />
       <AboutUs />
     </div>

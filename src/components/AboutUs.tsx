@@ -1,11 +1,11 @@
 "use client";
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import MovingText from "./Zui";
 import { ParallaxDiv } from "./ZuiDiv";
 import { isDivInView } from "@/utils/isInView";
 
-const data: AboutUsProps[] = [
+const data:AboutUsProps[] = [
   {
     title: "ABOUT US",
     paragraph1:
@@ -50,11 +50,14 @@ const data: AboutUsProps[] = [
   },
 ];
 
+
 interface AboutUsProps {
-  title: string;
-  paragraph1: string;
-  paragraph2: string;
-  paragraph3: string;
+  
+    title: string;
+    paragraph1: string;
+    paragraph2: string;
+    paragraph3: string;
+
 }
 
 const AboutUs = () => {
@@ -62,7 +65,21 @@ const AboutUs = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ container: ref });
 
-  
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (!isDivInView(".about-us")) {
+        window.scrollBy(e.deltaX, e.deltaY);
+        e.preventDefault();
+      }
+    };
+
+    const container = ref.current;
+    container?.addEventListener("wheel", handleWheel);
+
+    return () => {
+      container?.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
 
   useEffect(() => {
     return scrollYProgress.onChange((progress) => {
@@ -72,7 +89,8 @@ const AboutUs = () => {
       );
       setCurrentIndex(newIndex);
     });
-  }, [scrollYProgress]);
+  }, [scrollYProgress, data.length]);
+
 
   return (
     <div data-scroll-section className={`about-us w-screen h-screen font-silk z-10`}>
@@ -81,7 +99,7 @@ const AboutUs = () => {
         className="w-full h-screen overflow-y-auto overflow-x-hidden relative"
       >
         <div className="w-full h-[600vh] flex flex-col relative z-20 bg-yellow-300">
-          <div className="sticky pointer-events-none top-0 left-0 w-full h-screen flex justify-center items-center bg-white">
+          <div className="sticky  pointer-events-none top-0 left-0 w-full h-screen flex justify-center items-center bg-white">
             <motion.div
               className={`w-3/4 h-4/6 transition-all duration-700 ease-in-out bg-black rounded-[3rem] relative flex flex-col justify-around p-4 items-center`}
               initial={{ opacity: 0 }}
@@ -97,7 +115,7 @@ const AboutUs = () => {
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={data[currentIndex].title}
-                  className="text-center text-white lg:text-9xl md:text-6xl sm:text-5xl text-3xl absolute lg:-top-2 -top-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 line-clamp-1 w-screen mix-blend-difference"
+                  className={`text-center text-white lg:text-9xl md:text-6xl sm:text-5xl text-3xl absolute lg:-top-2 -top-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 line-clamp-1 w-screen mix-blend-difference`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -143,11 +161,11 @@ const AboutUs = () => {
                 </motion.div>
               </AnimatePresence>
               <motion.div
-                className="absolute bg-white transition-all ease-in-out mix-blend-difference w-1/3 h-10 -right-20 top-[35%]"
+                className="absolute bg-white transition-all  ease-in-out mix-blend-difference w-1/3 h-10 -right-20 top-[35%]"
                 initial={{ x: 100, scaleY: 1, opacity: 1, y: 0 }}
                 animate={{
-                  x: currentIndex === 1 ? 60 : currentIndex === 2 ? -447.5 : -1000,
-                  scaleY: currentIndex === 2 ? 4.4 : currentIndex > 2 ? 0.1 : 1,
+                  x: currentIndex === 1 ? 60 : currentIndex == 2 ? -450 : -1000,
+                  scaleY: currentIndex == 2 ? 4.05 : currentIndex > 2 ? 0.1 : 1,
                   opacity: currentIndex > 2 ? 0 : 1,
                 }}
                 transition={{ duration: 0.5, delay: 0.1, ease: "easeInOut" }}
@@ -158,15 +176,15 @@ const AboutUs = () => {
                         ? "color"
                         : "lighten"
                       : "difference",
-                  display: currentIndex > 2 ? "none" : "flex",
+                  display: currentIndex > 2 ? "hidden" : "flex",
                 }}
               />
               <motion.div
-                className="absolute transition-all ease-in-out bg-white mix-blend-difference w-1/3 h-10 -left-20 bottom-40"
+                className="absolute transition-all  ease-in-out bg-white mix-blend-difference w-1/3 h-10 -left-20 bottom-40"
                 initial={{ x: -100, scaleY: 1, y: 0, opacity: 1 }}
                 animate={{
-                  x: currentIndex === 1 ? -60 : currentIndex === 2 ? 441 : 1000,
-                  scaleY: currentIndex === 2 ? 4.2 : currentIndex > 2 ? 0.1 : 1,
+                  x: currentIndex === 1 ? -60 : currentIndex === 2 ? 445 : 1000,
+                  scaleY: currentIndex == 2 ? 4.05 : currentIndex > 2 ? 0.1 : 1,
                   opacity: currentIndex > 2 ? 0 : 1,
                 }}
                 transition={{ duration: 0.5, delay: 0.1, ease: "easeInOut" }}
@@ -177,7 +195,7 @@ const AboutUs = () => {
                         ? "color"
                         : "lighten"
                       : "difference",
-                  display: currentIndex > 2 ? "none" : "flex",
+                  display: currentIndex > 2 ? "hidden" : "flex",
                 }}
               />
               {currentIndex > 2 && (
@@ -189,7 +207,7 @@ const AboutUs = () => {
                     width: "100%",
                     height: currentIndex > 3 ? "100%" : "50%",
                   }}
-                  transition={{ duration: 0.5, ease: "easeInOut"}}
+                  transition={{ duration: 0.5, damping: 4, ease: "easeInOut" }}
                 >
                   {currentIndex > 4 && (
                     <>
@@ -197,16 +215,24 @@ const AboutUs = () => {
                         className="w-full md:h-1/4 sm:h-1/5 h-1/6 bg-black"
                         initial={{ x: "100%" }}
                         animate={{ x: "0%" }}
-                        transition={{ duration: 1, ease: "easeInOut"}}
+                        transition={{
+                          duration: 0.5,
+                          damping: 4,
+                          ease: "easeInOut",
+                        }}
                       >
                         <MovingText text1="News" text2="and" text3="" />
                       </motion.div>
-                      <ParallaxDiv />
+                      <ParallaxDiv/>
                       <motion.div
-                        className="w-full md:h-1/4 sm:h-1/5 h-1/6 bg-black"
+                        className="w-full md:h-1/4 sm:h-1/5 h-1/6 bg-black "
                         initial={{ x: "-100%" }}
                         animate={{ x: "0%" }}
-                        transition={{ duration: 1, ease: "easeInOut" }}
+                        transition={{
+                          duration: 0.5,
+                          damping: 4,
+                          ease: "easeInOut",
+                        }}
                       >
                         <MovingText text1="Press" text2="release" text3="" />
                       </motion.div>

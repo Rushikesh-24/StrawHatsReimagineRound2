@@ -2,7 +2,6 @@
 import { Silkscreen } from "next/font/google";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,10 +18,9 @@ const Navbar = () => {
           onClick={() => {
             setIsOpen(!isOpen);
           }}
-          className={`sm:size-14 view size-8 relative flex flex-col sm:gap-1 gap-[2px] justify-center ${isOpen ? "mt-5" : ""}`}
+          className={`sm:size-14 size-8 relative flex flex-col sm:gap-1 gap-[2px] justify-center ${isOpen ? "mt-5" : ""}`}
           animate={isOpen ? "open" : "closed"}
         >
-          <Link href='' className="size-full view flex flex-col sm:gap-1 gap-[2px] justify-center">
           <motion.div
             className="h-1 sm:w-4 w-2 ml-1 bg-white"
             variants={{
@@ -91,8 +89,6 @@ const Navbar = () => {
               },
             }}
           ></motion.div>
-          </Link>
-          
         </motion.button>
       </div>
       <AnimatePresence>

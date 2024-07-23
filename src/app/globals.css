@@ -18,13 +18,12 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  /* background: linear-gradient(
+  background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb)); */
-    background-color: gray;
+    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
@@ -311,26 +310,4 @@ html.has-scroll-dragging {
     right: auto;
     bottom: 0; }
 
-/* Dont Fuck with my code */
-.rushi-cursor{
-  position: fixed;
-  top:0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-}
-.rushi-cursor-text{
-  font-size: 5px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  display: none;
-}
+

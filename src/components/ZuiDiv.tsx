@@ -31,7 +31,7 @@ const ParallaxDivs: FC<ParallaxDivsProps> = ({ baseVelocity = 100, children }) =
   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
     clamp: false,
   });
-  const x = useTransform(baseX, (v) => `${wrap(100, -100, v)}%`);
+  const x = useTransform(baseX, (v) => `${wrap(-100, 100, v)}%`);
 
   const directionFactor = useRef(1);
   useAnimationFrame((t, delta) => {
@@ -52,14 +52,13 @@ const ParallaxDivs: FC<ParallaxDivsProps> = ({ baseVelocity = 100, children }) =
       <motion.div
         className="scroller flex whitespace-nowrap w-full h-full transition-all ease-linear"
         style={{ x }}
-        
+        onHoverStart={()=>setbaseVelocity(0)}
+        onHoverEnd={()=>setbaseVelocity(baseVelocity)}
       >
         {Array(4)
           .fill(null)
           .map((_, index) => (
             <motion.div
-            onHoverStart={()=>setbaseVelocity(0)}
-        onHoverEnd={()=>setbaseVelocity(baseVelocity)}
               key={index}
               className="md:w-full h-full flex justify-between mx-4 space-x-4 md:space-x-8 gap-2"
             >
@@ -73,11 +72,7 @@ const ParallaxDivs: FC<ParallaxDivsProps> = ({ baseVelocity = 100, children }) =
 
 export const ParallaxDiv: FC = () => {
   return (
-    <motion.div className="w-full h-[40%] pointer-events-auto flex justify-center items-center z-[999]"
-    initial={{scale:0}}
-    animate={{scale:1}}
-    transition={{duration:1,delay:0.3,ease:"easeInOut"}}
-    >
+    <div className="w-full h-[40%] pointer-events-auto flex justify-center items-center z-[999]">
       <ParallaxDivs baseVelocity={-10}>
         <motion.div
           className="size-64 flex flex-col relative group justify-center items-center"
@@ -152,6 +147,6 @@ export const ParallaxDiv: FC = () => {
           </div>
         </motion.div>
       </ParallaxDivs>
-    </motion.div>
+    </div>
   );
 };
