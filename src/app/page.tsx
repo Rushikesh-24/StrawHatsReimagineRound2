@@ -46,7 +46,6 @@ export default function Home() {
       <Hero2/>
       <MotionCameras />
       <Products />
-      <CamerasSection />
     </div>
     </LocomotiveScrollProvider>
   );
