@@ -48,7 +48,7 @@ const page = () => {
     },
   ];
   return (
-    <div className="z-10 bg-red-900 w-screen h-screen flex">
+    <div className="">
       {/* <AboutUs /> */}
     </div>
   );
