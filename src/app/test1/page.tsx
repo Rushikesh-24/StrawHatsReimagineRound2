@@ -48,8 +48,8 @@ const page = () => {
     },
   ];
   return (
-    <div className="z-10">
-      <AboutUs />
+    <div className="">
+      {/* <AboutUs /> */}
     </div>
   );
 };

@@ -10,6 +10,7 @@ import { easeInOut, motion } from "framer-motion";
 import { Vibes } from "next/font/google";
 import Image from "next/image";
 import canonImage from '../../public/canonBg.png'
+import Link from "next/link";
 
 const vibes = Vibes({
   weight: ["400"],
@@ -30,7 +31,7 @@ const  MeshComponent2: React.FC<{ bool: boolean; onLoad: () => void, }> = ({ boo
     const scrollY = window.scrollY / (document.body.scrollHeight - window.innerHeight);
     let cameraZ = Math.max(50, 100 - (t * 20));
   
-    const maxRotationSpeed = 0.05; // Define a maximum rotation speed
+    const maxRotationSpeed = 0.02; // Define a maximum rotation speed
   
     if (bool) {
       camera.position.z = THREE.MathUtils.lerp(camera.position.z, maxCameraZ, 0.1);
@@ -134,8 +135,8 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
           />
         </motion.div>
       )}
-      <div
-        className="hover-detect flex justify-start items-center bg-opacity-40 border-white border lg:w-80 lg:h-20 sm:w-60 sm:h-16 w-36  group cursor-pointer absolute lg:bottom-20 lg:right-24 sm:bottom-14 sm:right-16 right-10 bottom-10 rounded-lg overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black text-white"
+      <Link href={''}
+        className="hover-detect view bg-red-800 flex justify-start items-center bg-opacity-40 border-white border lg:w-80 lg:h-20 sm:w-60 sm:h-16 w-36  group cursor-pointer absolute lg:bottom-20 lg:right-24 sm:bottom-14 sm:right-16 right-10 bottom-10 rounded-lg overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black text-white"
         onClick={handleRotationChange}
       >
         <div className="w-0 group-hover:w-1/4 h-full duration-500 group-hover:flex group-hover:translate-y-0 group-hover:translate-x-0 translate-y-full -translate-x-full justify-center items-center stroke-black bg-white  ">
@@ -193,7 +194,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
             />
           </svg>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

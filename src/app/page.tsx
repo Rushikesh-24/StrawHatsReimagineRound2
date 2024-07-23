@@ -9,6 +9,9 @@ import AboutUs from "@/components/AboutUs";
 import { use, useEffect, useRef, useState } from "react";
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import MotionCameras from "@/components/MotionCameras";
+import Cursor2 from "@/components/Cursor2";
+import Hero2 from "@/components/Hero2";
+import CamerasSection from "@/components/CamerasSection";
 
 export default function Home() {
   const containerRef = useRef(null)
@@ -18,6 +21,12 @@ export default function Home() {
       options={
         {
           smooth: true,
+          smartphone:{
+            smooth:false,
+          },
+          tablet:{
+            smooth:false
+          },
           // ... all available Locomotive Scroll instance options 
         }
       }
@@ -30,15 +39,10 @@ export default function Home() {
       }
       containerRef={containerRef}
     >
-    <div data-scroll-container ref={containerRef} className="h-[400vh] font-contrail bg-red-canon">
+    <div data-scroll-container ref={containerRef} className="font-contrail bg-red-canon">
+      <Cursor2/>
+      <Hero2/>
       <MotionCameras />
-      {/*<Navbar />
-      <Cursor />
-      <Hero />
-      <Printer />
-      <Products />
-      <Cameras />
-      <AboutUs />*/}
     </div>
     </LocomotiveScrollProvider>
   );

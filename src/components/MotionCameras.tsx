@@ -6,8 +6,8 @@ import Photographer2 from "../../public/photographer2.png"
 function MotionCameras() {
   return (
     <div data-scroll-section className='h-screen relative will-change-transform flex justify-center items-center'>
-        <p className='absolute left-[1.5%] bottom-[8%] font-bebas text-4xl -rotate-90'>SCROLL DOWN</p>
-        <div data-scroll data-scroll-speed={10} className='bg-red-canon absolute left-[8%] group'>
+        <p className='absolute hidden md:block left-[1.5%] bottom-[8%] font-bebas text-4xl -rotate-90'>SCROLL DOWN</p>
+        <div data-scroll data-scroll-speed={10} className='bg-red-canon hidden md:block absolute left-[8%] group'>
             <Image 
                 src={Photographer.src}
                 height={Photographer.height}
@@ -29,9 +29,9 @@ function MotionCameras() {
             />
             <p className='uppercase text-3xl font-bebas'>Imaging Masterpiece</p>
         </div>
-        <div className=' text-[18rem] font-normal z-10 relative'>
-            <p className='text-4xl absolute top-[2%] left-[30%] font-bebas'>MOTION PERFECTION</p>
-            <p className='absolute -translate-x-[2%] -translate-y-[5%] text-stroke-white text-transparent z-10'>CAMERAS</p>
+        <div className='text-[6rem] md:text-[18rem] font-normal z-10 relative'>
+            <p className='text-4xl absolute top-[-10%] md:top-[2%] left-[30%] font-bebas'>MOTION PERFECTION</p>
+            <p className='absolute hidden md:block -translate-x-[2%] -translate-y-[5%] text-stroke-white text-transparent z-10'>CAMERAS</p>
             <p className='z-20 relative'>CAMERAS</p>
         </div>
     </div>
