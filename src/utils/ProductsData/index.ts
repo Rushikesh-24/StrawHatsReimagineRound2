@@ -1,31 +1,27 @@
 
 export const projects = [
     {
-      title: "Richard Gaston",
-      src: "/back.png"
+      title: "EOS R50",
+      src: "/cameras/r50.png"
     },
     {
-      title: "KangHee Kim",
-      src: "/back.png"
+      title: "EOS R6 MARK 2",
+      src: "/cameras/r6mk2.png"
     },
     {
-      title: "Inka and Niclas",
-      src: "/back.png"
+      title: "EOS 1500D",
+      src: "/cameras/1500D.png"
     },
     {
-      title: "Arch McLeish",
-      src: "/back.png"
+      title: "EOS R3",
+      src: "/cameras/r3.png"
     },
     {
-      title: "Nadir Bucan",
-      src: "/back.png"
+      title: "EOS 5D MARK 4",
+      src: "/cameras/5d.png"
     },
     {
-      title: "Chandler Bondurant",
-      src: "/back.png"
+      title: "EOS 3000D",
+      src: "/cameras/3000D.png"
     },
-    {
-      title: "Arianna Lago",
-      src: "/back.png"
-    }
 ]

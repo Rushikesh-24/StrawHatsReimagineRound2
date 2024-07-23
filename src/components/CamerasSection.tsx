@@ -1,19 +1,33 @@
 import Image from "next/image"
 import Back from "../../public/back.png"
 import EOS from "../../public/cameras/eos.png"
-
-import React, { useState } from 'react'
+import CloseUp from "../../public/cameras/cameraclose.jpg"
+import React, { useEffect, useRef, useState } from 'react'
+import { motion, useScroll } from 'framer-motion';
 
 function CamerasSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ container: ref });
+  
+
   return (
-    <div id="stick" data-scroll-section>
-        <div data-scroll data-scroll-speed="50" data-scroll-direction="horizontal"  className="flex justify-start gap-10 items-center w-screen h-screen">
+    <div ref={ref} className="max-h-screen ">
+    <motion.div  id="stick" data-scroll-section className="flex items-center justify-center h-[100vh]">
+        <Image 
+            src={CloseUp.src}
+            height={CloseUp.height}
+            width={CloseUp.width}
+            alt="camera closeup"
+        />
+        <p>{scrollYProgress.get()}</p>
+        {/*<div data-scroll data-scroll-speed="50" data-scroll-direction="horizontal"  className="flex justify-start gap-10 items-center w-screen h-screen">
             <Pic />
             <Pic />
             <Pic />
             <Pic />
             <Pic />
-        </div>
+        </div>*/}
+    </motion.div>
     </div>
   )
 }
