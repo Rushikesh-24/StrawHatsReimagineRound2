@@ -5,12 +5,12 @@ import Navbar from "@/components/Navbar";
 import AboutUs from "@/components/AboutUs";
 import { use, useEffect, useRef, useState } from "react";
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
+import Products from "@/components/Products";
 import Printer from "@/components/Printers";
 import Cameras from "@/components/Cameras";
 import Cursor2 from "@/components/RushiCursor";
 
 export default function Home() {
-  const [scrollLock, setScrollLock] = useState(false)
   const containerRef = useRef(null)
 
   return (
@@ -37,6 +37,7 @@ export default function Home() {
       <Cursor2/>
       <Hero />
       <Printer />
+      <Products />
       <Cameras />
       <AboutUs />
     </div>

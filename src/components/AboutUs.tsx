@@ -62,6 +62,7 @@ const AboutUs = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ container: ref });
 
+  
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (!isDivInView(".about-us")) {
