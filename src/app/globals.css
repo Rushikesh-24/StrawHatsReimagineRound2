@@ -311,3 +311,8 @@ html.has-scroll-dragging {
     bottom: 0; }
 
 
+.text-stroke-white {
+  /* Prefix required. Even Firefox only supports the -webkit- prefix */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
+}
