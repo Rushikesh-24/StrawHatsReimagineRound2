@@ -17,11 +17,18 @@ import Products from "@/components/Products";
 import CameraModel2 from "@/components/NewComponents/CanonModel2";
 import Printer2 from "@/components/NewComponents/Printer2";
 import AboutUs2 from "@/components/NewComponents/AboutUs2";
+import useLoadingManager from "@/components/NewComponents/LoadingManager";
+import Loader from "./Loading";
+import Sustainability from "@/components/NewComponents/Sustainability";
 
 export default function Home() {
   const containerRef = useRef(null)
+  const { loading, progress } = useLoadingManager();
 
   return (
+    <>
+     {loading && <Loader progress={progress} />}
+     {!loading && (
     <LocomotiveScrollProvider
       options={
         {
@@ -46,6 +53,7 @@ export default function Home() {
     >
     <div data-scroll-container id="ho" ref={containerRef} className="font-contrail bg-red-canon">
       <Cursor2/>
+      <Navbar/>
       <Hero2/>
       <MotionCameras />
       <CameraModel2/>
@@ -53,7 +61,10 @@ export default function Home() {
       {/* <SideScroll /> */}
       <Printer2/>
       <AboutUs2/>
+      <Sustainability/>
     </div>
-    </LocomotiveScrollProvider>
+    </LocomotiveScrollProvider>)}
+    </>
+    
   );
 }
