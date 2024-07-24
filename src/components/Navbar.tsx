@@ -35,9 +35,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center fixed z-50 sm:px-14 px-2 w-screen sm:h-24 h-16">
+      <div data-scroll-section className="flex justify-between items-center fixed z-50 sm:px-14 px-2 w-screen sm:h-24 h-16">
         <div
-          className={`${Contrail.className} font-normal sm:text-7xl text-3xl text-center text-white ${isOpen ? "opacity-0" : ""}`}
+          className={` font-bebas font-normal sm:text-7xl text-3xl text-center text-white ${isOpen ? "opacity-0" : ""}`}
         >
           <Randomizer page={"CAMERAS"} />
         </div>
@@ -137,7 +137,7 @@ const Navbar = () => {
               <div className="flex sm:flex-col flex-col-reverse sm:items-end items-center justify-between w-1/2 sm:h-full gap-4">
                 <div className="sm:h-96 h-64 sm:w-3/4 w-[90vw] flex justify-center items-center">
                   <video
-                    className="h-full w-full object-cover rounded-lg"
+                    className="h-full w-full object-cover rounded-lg absolute top-0 left-0 h-screen w-screen brightness-50"
                     src="/videoplayback.mp4"
                     autoPlay
                     loop
@@ -146,7 +146,7 @@ const Navbar = () => {
                   />
                 </div>
                 <motion.div
-                 className={`flex sm:flex-col flex-row ${Contrail.className} sm:mb-20 md:px-48 items-start sm:text-2xl text-xl sm:h-32 h-14 sm:w-full gap-4`}
+                 className={`flex sm:flex-col flex-row font-bebas sm:mb-20 md:px-48 items-start sm:text-2xl text-xl sm:h-32 h-14 sm:w-full gap-4 relative z-10`}
                  initial={{ opacity: 0 }}
                  animate={{ opacity: 1 }}
                  transition={{ delay: 1, ease: easeInOut }}>
@@ -165,7 +165,7 @@ const Navbar = () => {
                 </motion.div>
               </div>
               <div
-                className={`flex flex-col items-center gap-5 ${Contrail.className} font-normal lg:text-8xl md:text-6xl text-5xl w-1/2 h-full`}
+                className={`flex flex-col items-center gap-5 font-bebas font-normal lg:text-8xl md:text-6xl text-5xl w-1/2 h-full relative z-10`}
               >
                 {refs.map((ref, index) => {
                   return (

@@ -78,7 +78,7 @@ const Randomizer: React.FC<RandomTextProps> = ({ page }) => {
     };
   }, [isSettling, currentIndex, page]);
 
-  return <span>{text.join("")}</span>;
+  return <span>{page}</span>;
 };
 
 export default Randomizer;

@@ -352,6 +352,18 @@ html.has-scroll-dragging {
   }
 }
 
+.first-drawer:hover ~ .second-drawer, .first-drawer:hover ~ .third-drawer{
+  flex: 0.1;
+}
+
+.first-drawer:has(+ .second-drawer:hover), .second-drawer:hover ~ .third-drawer{
+  flex: 0.1;
+}
+
+.second-drawer:has(+ .third-drawer:hover), .first-drawer:has(~ .third-drawer:hover){
+  flex: 0.1;
+}
+/* 
 .test {
   -webkit-filter: drop-shadow(1px 1px 0 white)
   drop-shadow(-1px 1px 0 white)
