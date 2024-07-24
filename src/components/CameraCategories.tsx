@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import EOS from "../../public/cameras/eos.png"
+import Pic2 from './NewComponents/Pic2'
 
 function CameraCategories() {
   return (
-    <div data-scroll-section className='h-screen w-screen relative grid grid-cols-5 border-t border-white overflow-hidden'>
+    <div data-scroll-section className='h-screen w-screen relative grid grid-cols-5 border-t border-b border-white overflow-hidden'>
         <div className='relative col-span-2'>
             <Image 
                 data-scroll
@@ -16,11 +17,12 @@ function CameraCategories() {
             />
         </div>
         <div className='col-span-3 flex border-l-[20px] border-white h-screen'>
-          <div className='bg-[#8d2a25] h-screen flex-1 duration-500 first-drawer relative flex items-start pt-10 overflow-hidden'>
+          <div className='bg-[#8d2a25] h-screen flex-1 duration-500 first-drawer relative flex items-start pt-10 overflow-hidden group'>
             <p className='absolute right-10 text-[6.5rem]' style={{writingMode:"vertical-rl"}}>
               Interchangeable <br />
               <span className='text-4xl absolute bottom-5'>lens camera</span>
             </p>
+            <Pic2 />
           </div>
           <div className='bg-[#71221e] h-screen flex-1 duration-500 second-drawer relative flex items-start pt-10 overflow-hidden'>
             <p className='absolute right-10 text-[6.5rem]' style={{writingMode:"vertical-rl"}}>

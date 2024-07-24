@@ -14,18 +14,17 @@ import Hero2 from "@/components/NewComponents/Hero2";
 import CamerasSection from "@/components/CamerasSection";
 import SideScroll from "@/components/SideScroll";
 import Products from "@/components/Products";
-<<<<<<< HEAD
 import PicExpandSection from "@/components/PicExpandSection";
 import CameraCategories from "@/components/CameraCategories";
-=======
 import CameraModel2 from "@/components/NewComponents/CanonModel2";
 import Printer2 from "@/components/NewComponents/Printer2";
 import AboutUs2 from "@/components/NewComponents/AboutUs2";
->>>>>>> e8781cd0a38392b37e34ea3ec476a76f611abe52
+import Footer from "@/components/Footer";
+import HeroKiKyaBaatHai from "@/components/NewComponents/HeroKiKyaBaatHai";
 
 export default function Home() {
   const containerRef = useRef(null)
-
+  
   return (
     <LocomotiveScrollProvider
       options={
@@ -53,21 +52,16 @@ export default function Home() {
       <Navbar />
       <Cursor2/>
       <Hero2/>
+      {/*<HeroKiKyaBaatHai />*/}
       <MotionCameras />
-<<<<<<< HEAD
       <CameraCategories />
-      <Products />
       <PicExpandSection container={containerRef}/>
-      <div data-scroll-section className="bg-red-canon h-screen">
-
-      </div>
-=======
       <CameraModel2/>
       <Products />
       {/* <SideScroll /> */}
       <Printer2/>
       <AboutUs2/>
->>>>>>> e8781cd0a38392b37e34ea3ec476a76f611abe52
+      <Footer />
     </div>
     </LocomotiveScrollProvider>
   );

@@ -363,6 +363,19 @@ html.has-scroll-dragging {
 .second-drawer:has(+ .third-drawer:hover), .first-drawer:has(~ .third-drawer:hover){
   flex: 0.1;
 }
+
+.rotate-animation{
+  animation: rotation 5s infinite forwards linear;
+}
+
+@keyframes rotation {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
 /* 
 .test {
   -webkit-filter: drop-shadow(1px 1px 0 white)
@@ -374,4 +387,4 @@ filter: drop-shadow(1px 1px 0 white)
 drop-shadow(-1px 1px 0 white)
 drop-shadow(1px -1px 0 white)
 drop-shadow(-1px -1px 0 white);
-}
+}*/

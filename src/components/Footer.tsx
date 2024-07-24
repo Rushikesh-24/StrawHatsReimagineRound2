@@ -15,7 +15,7 @@ const contrail = Contrail_One({
 
 const Footer = () => {
   return (
-    <footer className="h-screen w-screen flex flex-col justify-center gap-10 bg-[#DF0C13] relative z-10 overflow-hidden">
+    <footer data-scroll-section className="h-screen w-screen flex flex-col justify-center gap-10 bg-[#DF0C13] relative z-10 overflow-hidden">
       <div className="flex items-start lg:justify-end justify-center sm:py-5 relative z-20">
         <div className="lg:w-5/6 w-full h-3/4  flex flex-wrap">
           {/* First Row */}
@@ -126,7 +126,7 @@ const Footer = () => {
       <div className={`text-[#720A0B] absolute -top-[60rem] left-96 rotate-90 font-bold text-[90rem] tracking-widest ${bebas.className} z-10`}>
         <h1>O</h1>
       </div>
-      <div className={`absolute -right-10 -bottom-36 rounded-full flex justify-center items-center bg-[#720A0B] text-[#CA4849] size-96 font-bold text-9xl ${bebas.className}`} style={{clipPath: "inset(0px 0px -50% 0px)"}}>
+      <div className={`absolute -right-10 -bottom-36 rounded-full flex justify-center items-center bg-[#720A0B] text-[#CA4849] size-96 rotate-animation font-bold text-9xl ${bebas.className}`} style={{clipPath: "inset(0px 0px -50% 0px)"}}>
         <h1>CANON</h1>
       </div>
     </footer>

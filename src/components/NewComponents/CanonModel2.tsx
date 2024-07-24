@@ -72,7 +72,7 @@ const CameraModel2 = () => {
             decay={0}
             intensity={Math.PI}
             ref={lightRef}
-            color={'red'}
+            color={'rgba(223, 12, 19, 1)'}
             castShadow
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
