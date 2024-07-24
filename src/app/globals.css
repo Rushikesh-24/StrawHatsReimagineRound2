@@ -36,96 +36,86 @@ body {
   transform-origin: 0 0;
 }
 
-.cursor-hovering{
+.cursor-hovering {
   transform-origin: 0 0;
-  rotate:180deg;
+  rotate: 180deg;
   transition: rotate 0.5s;
-  background:black;
+  background: black;
   backdrop-filter: difference;
 }
 #t1 {
-  position:absolute;
-  top:-36%;
-  left:40%;
+  position: absolute;
+  top: -36%;
+  left: 40%;
   transition: 0.2s;
   isolation: isolate;
 }
-#t1 > path{
- 
+#t1 > path {
   mix-blend-mode: difference;
 }
 
-
-
-#t2{
-  position:absolute;
-  top:-66%;
-  left:-14%;
+#t2 {
+  position: absolute;
+  top: -66%;
+  left: -14%;
   transition: 0.2s;
-  fill:difference
-
+  fill: difference;
 }
 
-#t3{
-  position:absolute;
-  top:-40%;
-  left:-49%;
+#t3 {
+  position: absolute;
+  top: -40%;
+  left: -49%;
   transition: 0.2s;
-  fill:difference
-
+  fill: difference;
 }
 
-#t4{
-  position:absolute;
-  top:75%;
-  left:-72%;
+#t4 {
+  position: absolute;
+  top: 75%;
+  left: -72%;
   transition: 0.2s;
-  fill:difference
-
+  fill: difference;
 }
 
-#t5{
-  position:absolute;
-  top:55%;
-  left:11%;
+#t5 {
+  position: absolute;
+  top: 55%;
+  left: 11%;
   transition: 0.2s;
-  fill:difference
+  fill: difference;
 }
 
-#t6{
-  position:absolute;
-  top:25%;
-  left:65%;
+#t6 {
+  position: absolute;
+  top: 25%;
+  left: 65%;
   transition: 0.2s;
-  fill:difference
+  fill: difference;
 }
-
-
-
-
 
 .cursor-hovering > #t1 {
-  top:-22%;
-  left:36%
+  top: -22%;
+  left: 36%;
 }
 .cursor-hovering > #t2 {
-  top:-42%;
-  left:-11%;
+  top: -42%;
+  left: -11%;
 }
 
 .cursor-hovering > #t3 {
-  left:-32%;
+  left: -32%;
 }
 .cursor-hovering > #t4 {
-  top:60%;
-  left:-70%;
+  top: 60%;
+  left: -70%;
 }
 .cursor-hovering > #t5 {
-  top:49%;
-  left:0%;
+  top: 49%;
+  left: 0%;
 }
 .cursor-hovering > #t6 {
-  left:50%;
+  left: 50%;
 }
 
 /*
@@ -154,12 +144,11 @@ body {
 }*/
 
 .bg-heroimage {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/herobg.svg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/herobg.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  
-
 }
 
 .bg-concrete {
@@ -175,11 +164,10 @@ body {
   background-repeat: repeat;
 }
 
-.bg-print1{
+.bg-print1 {
   background-image: url("https://images.pexels.com/photos/18207342/pexels-photo-18207342/free-photo-of-mitsubishi-pajero-in-countryside.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   background-size: cover;
   background-repeat: no-repeat;
-  
 }
 
 .shrink {
@@ -190,36 +178,35 @@ body {
   animation: fadeIn 2s;
 }
 
-.timed-dimension{
-  
+.timed-dimension {
 }
 
 @keyframes shrink {
-  0%{
+  0% {
     transform: scale(280%);
   }
-  100%{
+  100% {
     transform: scale(100%);
   }
 }
 
 @keyframes changeDimension {
-  0%{
+  0% {
     width: 100vw;
   }
-  100%{
+  100% {
     width: 400vw;
   }
 }
 
 @keyframes fadeIn {
-  0%{
+  0% {
     opacity: 0;
   }
-  80%{
+  80% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
@@ -228,47 +215,52 @@ body {
   font-size: 13px;
   font-weight: normal;
   margin: 5px;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 
 .custom-link {
   font-weight: bold;
-  color: #1CAAD9;
+  color: #1caad9;
 }
 
 /*! locomotive-scroll v4.1.3 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
 html.has-scroll-smooth {
-  overflow: hidden; 
   overflow: hidden;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;  
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 html.has-scroll-dragging {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 .has-scroll-smooth body {
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .has-scroll-smooth [data-scroll-container] {
-  min-height: 100vh; }
+  min-height: 100vh;
+}
 
 [data-scroll-direction="horizontal"] [data-scroll-container] {
   height: 100vh;
   display: inline-block;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 
 [data-scroll-direction="horizontal"] [data-scroll-section] {
   display: inline-block;
   vertical-align: top;
   white-space: nowrap;
-  height: 100%; }
+  height: 100%;
+}
 
 .c-scrollbar {
   position: absolute;
@@ -278,19 +270,26 @@ html.has-scroll-dragging {
   height: 100%;
   transform-origin: center right;
   transition: transform 0.3s, opacity 0.3s;
-  opacity: 0; }
-  .c-scrollbar:hover {
-    transform: scaleX(1.45); }
-  .c-scrollbar:hover, .has-scroll-scrolling .c-scrollbar, .has-scroll-dragging .c-scrollbar {
-    opacity: 1; }
-  [data-scroll-direction="horizontal"] .c-scrollbar {
-    width: 100%;
-    height: 10px;
-    top: auto;
-    bottom: 0;
-    transform: scaleY(1); }
-    [data-scroll-direction="horizontal"] .c-scrollbar:hover {
-      transform: scaleY(1.3); }
+  opacity: 0;
+}
+.c-scrollbar:hover {
+  transform: scaleX(1.45);
+}
+.c-scrollbar:hover,
+.has-scroll-scrolling .c-scrollbar,
+.has-scroll-dragging .c-scrollbar {
+  opacity: 1;
+}
+[data-scroll-direction="horizontal"] .c-scrollbar {
+  width: 100%;
+  height: 10px;
+  top: auto;
+  bottom: 0;
+  transform: scaleY(1);
+}
+[data-scroll-direction="horizontal"] .c-scrollbar:hover {
+  transform: scaleY(1.3);
+}
 
 .c-scrollbar_thumb {
   position: absolute;
@@ -302,40 +301,65 @@ html.has-scroll-dragging {
   border-radius: 10px;
   margin: 2px;
   cursor: -webkit-grab;
-  cursor: grab; }
-  .has-scroll-dragging .c-scrollbar_thumb {
-    cursor: -webkit-grabbing;
-    cursor: grabbing; }
-  [data-scroll-direction="horizontal"] .c-scrollbar_thumb {
-    right: auto;
-    bottom: 0; }
-
+  cursor: grab;
+}
+.has-scroll-dragging .c-scrollbar_thumb {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+[data-scroll-direction="horizontal"] .c-scrollbar_thumb {
+  right: auto;
+  bottom: 0;
+}
 
 .text-stroke-white {
   /* Prefix required. Even Firefox only supports the -webkit- prefix */
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: white;
 }
-    .rushi-cursor{
-      position: fixed;
-      top:0;
-      left: 0;
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      mix-blend-mode: difference;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: white;
-    }
-    .rushi-cursor-text{
-      font-size: 5px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      display: none;
-    }
-    
+.rushi-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.rushi-cursor-text {
+  font-size: 5px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  display: none;
+}
+
+@layer base {
+  .font-outline-1 {
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+  }
+  .font-outline-2 {
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+  }
+  .font-outline-4 {
+    -webkit-text-stroke: 4px rgb(255, 255, 255);
+  }
+}
+/* 
+.test {
+  -webkit-filter: drop-shadow(1px 1px 0 white)
+  drop-shadow(-1px 1px 0 white)
+  drop-shadow(1px -1px 0 white)
+  drop-shadow(-1px -1px 0 white);
+
+filter: drop-shadow(1px 1px 0 white)
+drop-shadow(-1px 1px 0 white)
+drop-shadow(1px -1px 0 white)
+drop-shadow(-1px -1px 0 white);
+} */

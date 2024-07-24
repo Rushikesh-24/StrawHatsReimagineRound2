@@ -7,7 +7,7 @@ function MotionCameras() {
   return (
     <div data-scroll-section className='h-screen relative will-change-transform flex justify-center items-center'>
         <p className='absolute hidden md:block left-[1.5%] bottom-[8%] font-bebas text-4xl -rotate-90'>SCROLL DOWN</p>
-        <div data-scroll data-scroll-speed={10} className='bg-red-canon hidden md:block absolute left-[8%] group'>
+        <div data-scroll data-scroll-speed={5} className='bg-red-canon hidden md:block absolute left-[8%] group'>
             <Image 
                 src={Photographer.src}
                 height={Photographer.height}
