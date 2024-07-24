@@ -16,6 +16,7 @@ import SideScroll from "@/components/SideScroll";
 import Products from "@/components/Products";
 import CameraModel2 from "@/components/NewComponents/CanonModel2";
 import Printer2 from "@/components/NewComponents/Printer2";
+import AboutUs2 from "@/components/NewComponents/AboutUs2";
 
 export default function Home() {
   const containerRef = useRef(null)
@@ -51,6 +52,7 @@ export default function Home() {
       <Products />
       {/* <SideScroll /> */}
       <Printer2/>
+      <AboutUs2/>
     </div>
     </LocomotiveScrollProvider>
   );
