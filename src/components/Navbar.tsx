@@ -11,6 +11,25 @@ const Contrail = Contrail_One({
   weight: ["400"],
 });
 
+const refs = [
+  {
+    name: "Behance",
+    link: "/",
+  },
+  {
+    name: "Instagram",
+    link: "https://www.instagram.com/",
+  },
+  {
+    name: "Facebook",
+    link: "https://www.facebook.com/",
+  },
+  {
+    name: "Twitter",
+    link: "https://twitter.com/",
+  },
+]
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -148,15 +167,25 @@ const Navbar = () => {
               <div
                 className={`flex flex-col items-center gap-5 ${Contrail.className} font-normal lg:text-8xl md:text-6xl text-5xl w-1/2 h-full`}
               >
-                <Link href={""} className="hover:text-red-500">
-                  <Randomizer page={"CAMERAS"} />
-                </Link>
-                <Link href={""} className="hover:text-red-500">
-                  <Randomizer page={"CAMERAS"} />
-                </Link>
-                <Link href={""} className="hover:text-red-500">
-                  <Randomizer page={"CAMERAS"} />
-                </Link>
+                {refs.map((ref, index) => {
+                  return (
+                    <motion.a
+                     key={index}
+                     href={ref.link} 
+                     target={"blank"}
+                     initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                        delay: 0.5*index,
+                      }}
+                     className="hover:text-red-500">
+                      <Randomizer page={ref.name} />
+                    </motion.a>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
