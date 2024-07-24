@@ -66,7 +66,6 @@ export default function Home() {
 
       </div>
       <CameraModel2/>
-      <Products />
       {/* <SideScroll /> */}
       <Printer2/>
       <AboutUs2/>
