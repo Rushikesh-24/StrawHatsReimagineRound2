@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeInOut } from "framer-motion";
 import Randomizer from "./Randomizer";
 import Link from "next/link";
 import { Contrail_One } from "next/font/google";
@@ -114,9 +114,9 @@ const Navbar = () => {
             exit={{ opacity: 0, x: -1000 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex sm:flex-row flex-col justify-between items-center sm:gap-28 gap-10 h-full w-full sm:pt-28 pt-10">
-              <div className="flex sm:flex-col flex-col-reverse items-center justify-between w-1/2 sm:h-full">
-                <div className="h-64 sm:w-3/4 w-[90vw] flex justify-center items-center">
+            <div className="flex sm:flex-row flex-col sm:justify-center justify-between items-center sm:gap-0 gap-10 h-full w-full sm:pt-20 pt-10">
+              <div className="flex sm:flex-col flex-col-reverse sm:items-end items-center justify-between w-1/2 sm:h-full gap-4">
+                <div className="sm:h-96 h-64 sm:w-3/4 w-[90vw] flex justify-center items-center">
                   <video
                     className="h-full w-full object-cover rounded-lg"
                     src="/videoplayback.mp4"
@@ -126,31 +126,35 @@ const Navbar = () => {
                     playsInline
                   />
                 </div>
-                <div className={`flex sm:flex-col flex-row ${Contrail.className} sm:mb-20 md:ml-36 items-start sm:text-2xl text-xl sm:h-32 h-14 sm:w-full gap-4`}>
-                  <Link href={""} target={"blank"}>
+                <motion.div
+                 className={`flex sm:flex-col flex-row ${Contrail.className} sm:mb-20 md:px-48 items-start sm:text-2xl text-xl sm:h-32 h-14 sm:w-full gap-4`}
+                 initial={{ opacity: 0 }}
+                 animate={{ opacity: 1 }}
+                 transition={{ delay: 1, ease: easeInOut }}>
+                  <Link href={""} target={"blank"} className="hover:text-red-500">
                     <Randomizer page={"BEHANCE"} />
                   </Link>
-                  <Link href={"https://www.instagram.com/canonindia_official/"} target={"blank"}>
+                  <Link href={"https://www.instagram.com/canonindia_official/"} target={"blank"} className="hover:text-red-500">
                     <Randomizer page={"INSTAGRAM"} />
                   </Link>
-                  <Link href={"https://www.facebook.com/canonindia/"} target={"blank"}>
+                  <Link href={"https://www.facebook.com/canonindia/"} target={"blank"} className="hover:text-red-500">
                     <Randomizer page={"FACEBOOK"} />
                   </Link>
-                  <Link href={"https://x.com/Canon_India"} target={"blank"}>
+                  <Link href={"https://x.com/Canon_India"} target={"blank"} className="hover:text-red-500">
                     <Randomizer page={"TWITTER"} />
                   </Link>
-                </div>
+                </motion.div>
               </div>
               <div
-                className={`flex flex-col items-center gap-5 ${Contrail.className} font-normal lg:text-7xl md:text-6xl text-5xl w-1/2 h-full`}
+                className={`flex flex-col items-center gap-5 ${Contrail.className} font-normal lg:text-8xl md:text-6xl text-5xl w-1/2 h-full`}
               >
-                <Link href={""}>
+                <Link href={""} className="hover:text-red-500">
                   <Randomizer page={"CAMERAS"} />
                 </Link>
-                <Link href={""}>
+                <Link href={""} className="hover:text-red-500">
                   <Randomizer page={"CAMERAS"} />
                 </Link>
-                <Link href={""}>
+                <Link href={""} className="hover:text-red-500">
                   <Randomizer page={"CAMERAS"} />
                 </Link>
               </div>
