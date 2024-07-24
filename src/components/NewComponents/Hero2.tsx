@@ -1,13 +1,7 @@
 import React from "react";
-import { Contrail_One } from "next/font/google";
 import HeroBg from "../../../public/HeroBgnew.png";
 import Image from "next/image";
-const contrail_One = Contrail_One({
-  weight: ["400"],
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-silk",
-});
+
 const Hero2 = () => {
   return (
     <div
@@ -16,7 +10,7 @@ const Hero2 = () => {
     >
       <div className="w-full h-[70vh] relative ">
         <h1
-          className={`text-black ${contrail_One.className} xl:text-[30rem] lg:text-[25rem] md:text-[20rem] sm:text-[15rem] text-[10rem] size-full text-end line-clamp-1 flex lg:justify-end justify-center items-center font-extrabold outline-white pointer-events-none`}
+          className={`text-black font-contrail xl:text-[30rem] lg:text-[25rem] md:text-[20rem] sm:text-[15rem] text-[10rem] size-full text-end line-clamp-1 flex lg:justify-end justify-center items-center font-extrabold outline-white pointer-events-none`}
         >
           CANON
         </h1>
@@ -37,7 +31,7 @@ const Hero2 = () => {
           alt=""
           className={`absolute sm:w-[35%] w-1/2 bottom-0 sm:left-10 left-0`}
         />
-        <p className={`${contrail_One.className} w-1/2 text-end text-xl view`}>
+        <p className={`font-contrail w-1/2 text-end text-xl view`}>
           At Canon, the CSR endeavors are driven by its corporate philosophy of
           ‘Kyosei’, embodying the spirit of ‘living and working together for
           common good’.
