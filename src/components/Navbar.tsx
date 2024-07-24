@@ -150,16 +150,16 @@ const Navbar = () => {
                  initial={{ opacity: 0 }}
                  animate={{ opacity: 1 }}
                  transition={{ delay: 1, ease: easeInOut }}>
-                  <Link href={""} target={"blank"} className="hover:text-red-500">
+                  <Link href={""} target={"blank"} className="hover:text-red-500 view">
                     <Randomizer page={"BEHANCE"} />
                   </Link>
-                  <Link href={"https://www.instagram.com/canonindia_official/"} target={"blank"} className="hover:text-red-500">
+                  <Link href={"https://www.instagram.com/canonindia_official/"} target={"blank"} className="hover:text-red-500 view">
                     <Randomizer page={"INSTAGRAM"} />
                   </Link>
-                  <Link href={"https://www.facebook.com/canonindia/"} target={"blank"} className="hover:text-red-500">
+                  <Link href={"https://www.facebook.com/canonindia/"} target={"blank"} className="hover:text-red-500 view">
                     <Randomizer page={"FACEBOOK"} />
                   </Link>
-                  <Link href={"https://x.com/Canon_India"} target={"blank"} className="hover:text-red-500">
+                  <Link href={"https://x.com/Canon_India"} target={"blank"} className="hover:text-red-500 view">
                     <Randomizer page={"TWITTER"} />
                   </Link>
                 </motion.div>
