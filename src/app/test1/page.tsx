@@ -1,38 +1,41 @@
 'use client'
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, MouseEvent } from 'react';
 
 export default function Home() {
-
-  const path = useRef(null);
+  const path = useRef<SVGPathElement>(null);
   let progress = 0;
   let x = 0.5;
   let time = Math.PI / 2;
-  let reqId = null;
+  let reqId: number | null = null;
 
   useEffect(() => {
     setPath(progress);
   }, []);
 
-  const setPath = (progress) => {
+  const setPath = (progress: number) => {
     const width = window.innerWidth * 0.7;
-    path.current.setAttributeNS(null, "d", `M0 250 Q${width * x} ${250 + progress}, ${width} 250`);
+    if (path.current) {
+      path.current.setAttributeNS(null, "d", `M0 250 Q${width * x} ${250 + progress}, ${width} 250`);
+    }
   }
 
-  const lerp = (x, y, a) => x * (1 - a) + y * a;
+  const lerp = (x: number, y: number, a: number) => x * (1 - a) + y * a;
 
   const manageMouseEnter = () => {
-    if (reqId) {
+    if (reqId !== null) {
       cancelAnimationFrame(reqId);
       resetAnimation();
     }
   }
 
-  const manageMouseMove = (e) => {
+  const manageMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     const { movementY, clientX } = e;
-    const pathBound = path.current.getBoundingClientRect();
-    x = (clientX - pathBound.left) / pathBound.width;
-    progress += movementY;
-    setPath(progress);
+    if (path.current) {
+      const pathBound = path.current.getBoundingClientRect();
+      x = (clientX - pathBound.left) / pathBound.width;
+      progress += movementY;
+      setPath(progress);
+    }
   }
 
   const manageMouseLeave = () => {
