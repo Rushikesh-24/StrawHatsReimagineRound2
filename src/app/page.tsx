@@ -14,6 +14,8 @@ import Hero2 from "@/components/Hero2";
 import CamerasSection from "@/components/CamerasSection";
 import SideScroll from "@/components/SideScroll";
 import Products from "@/components/Products";
+import PicExpandSection from "@/components/PicExpandSection";
+import CameraCategories from "@/components/CameraCategories";
 
 export default function Home() {
   const containerRef = useRef(null)
@@ -42,10 +44,16 @@ export default function Home() {
       containerRef={containerRef}
     >
     <div data-scroll-container id="ho" ref={containerRef} className="font-contrail bg-red-canon">
+      <Navbar />
       <Cursor2/>
       <Hero2/>
       <MotionCameras />
+      <CameraCategories />
       <Products />
+      <PicExpandSection container={containerRef}/>
+      <div data-scroll-section className="bg-red-canon h-screen">
+
+      </div>
     </div>
     </LocomotiveScrollProvider>
   );
