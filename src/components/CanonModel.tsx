@@ -136,7 +136,7 @@ export const ModelViewer: React.FC<ModelViewerProps> = () => {
         </motion.div>
       )}
       <Link href={''}
-        className="hover-detect view bg-red-800 flex justify-start items-center bg-opacity-40 border-white border lg:w-80 lg:h-20 sm:w-60 sm:h-16 w-36  group cursor-pointer absolute lg:bottom-20 lg:right-24 sm:bottom-14 sm:right-16 right-10 bottom-10 rounded-lg overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black text-white"
+        className="hover-detect view bg-red-800 flex justify-start items-center bg-opacity-40 border-white border lg:w-80 lg:h-20 sm:w-60 sm:h-16 w-36  group cursor-pointer absolute lg:bottom-20 lg:right-24 sm:bottom-14 sm:right-16 right-10 bottom-10 rounded-lg overflow-hidden flex-row hover:bg-white /hover:flex-row-reverse transition-all ease-in-out duration-100 bg-black/ text-white"
         onClick={handleRotationChange}
       >
         <div className="w-0 group-hover:w-1/4 h-full duration-500 group-hover:flex group-hover:translate-y-0 group-hover:translate-x-0 translate-y-full -translate-x-full justify-center items-center stroke-black bg-white  ">
