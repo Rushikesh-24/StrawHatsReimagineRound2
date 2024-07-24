@@ -9,13 +9,19 @@ import AboutUs from "@/components/AboutUs";
 import { use, useEffect, useRef, useState } from "react";
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import MotionCameras from "@/components/MotionCameras";
-import Cursor2 from "@/components/Cursor2";
-import Hero2 from "@/components/Hero2";
+import Cursor2 from "@/components/NewComponents/Cursor2";
+import Hero2 from "@/components/NewComponents/Hero2";
 import CamerasSection from "@/components/CamerasSection";
 import SideScroll from "@/components/SideScroll";
 import Products from "@/components/Products";
+<<<<<<< HEAD
 import PicExpandSection from "@/components/PicExpandSection";
 import CameraCategories from "@/components/CameraCategories";
+=======
+import CameraModel2 from "@/components/NewComponents/CanonModel2";
+import Printer2 from "@/components/NewComponents/Printer2";
+import AboutUs2 from "@/components/NewComponents/AboutUs2";
+>>>>>>> e8781cd0a38392b37e34ea3ec476a76f611abe52
 
 export default function Home() {
   const containerRef = useRef(null)
@@ -48,12 +54,20 @@ export default function Home() {
       <Cursor2/>
       <Hero2/>
       <MotionCameras />
+<<<<<<< HEAD
       <CameraCategories />
       <Products />
       <PicExpandSection container={containerRef}/>
       <div data-scroll-section className="bg-red-canon h-screen">
 
       </div>
+=======
+      <CameraModel2/>
+      <Products />
+      {/* <SideScroll /> */}
+      <Printer2/>
+      <AboutUs2/>
+>>>>>>> e8781cd0a38392b37e34ea3ec476a76f611abe52
     </div>
     </LocomotiveScrollProvider>
   );

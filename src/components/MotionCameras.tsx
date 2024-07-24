@@ -17,7 +17,7 @@ function MotionCameras() {
                 objectFit='cover'
                 className=' !mix-blend-color-burn object-contain'
             />
-            <p className='text-white z-10 left-[5%] bottom-[2%] -mt-10 absolute opacity-0 duration-500 group-hover:opacity-100'>Josh P Brutton</p>
+            <p className='text-white z-10 left-[5%] bottom-[2%] -mt-10 absolute opacity-0 duration-500 group-hover:opacity-100 view'>Josh P Brutton</p>
         </div>
         <div data-scroll data-scroll-speed={1} className='bg-red-canon absolute top-[5%] right-[1%]'>
             <Image 
