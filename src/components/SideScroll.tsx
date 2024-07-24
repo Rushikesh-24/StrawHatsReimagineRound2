@@ -13,7 +13,7 @@ function SideScroll() {
             scroller:"#ho",
             markers:true,
             start:"top 0%",
-            end:"top 10%",
+            end:"top 10s0%",
             pin:true
         }
     })

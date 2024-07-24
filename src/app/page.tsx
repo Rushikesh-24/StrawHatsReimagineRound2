@@ -9,11 +9,13 @@ import AboutUs from "@/components/AboutUs";
 import { use, useEffect, useRef, useState } from "react";
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import MotionCameras from "@/components/MotionCameras";
-import Cursor2 from "@/components/Cursor2";
-import Hero2 from "@/components/Hero2";
+import Cursor2 from "@/components/NewComponents/Cursor2";
+import Hero2 from "@/components/NewComponents/Hero2";
 import CamerasSection from "@/components/CamerasSection";
 import SideScroll from "@/components/SideScroll";
 import Products from "@/components/Products";
+import Model2 from "@/components/NewComponents/Model2";
+import Printer2 from "@/components/NewComponents/Printer2";
 
 export default function Home() {
   const containerRef = useRef(null)
@@ -46,6 +48,9 @@ export default function Home() {
       <Hero2/>
       <MotionCameras />
       <Products />
+      {/* <SideScroll /> */}
+      <Model2/>
+      <Printer2/>
     </div>
     </LocomotiveScrollProvider>
   );
