@@ -363,7 +363,7 @@ html.has-scroll-dragging {
 .second-drawer:has(+ .third-drawer:hover), .first-drawer:has(~ .third-drawer:hover){
   flex: 0.1;
 }
-/* 
+
 .test {
   -webkit-filter: drop-shadow(1px 1px 0 white)
   drop-shadow(-1px 1px 0 white)
