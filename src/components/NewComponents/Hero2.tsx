@@ -1,20 +1,12 @@
 import React from "react";
 import { Contrail_One } from "next/font/google";
-import { Bebas_Neue } from "next/font/google";
 import HeroBg from "../../../public/HeroBgnew.png";
 import Image from "next/image";
-import { motion } from "framer-motion";
 const contrail_One = Contrail_One({
   weight: ["400"],
   display: "swap",
   subsets: ["latin"],
   variable: "--font-silk",
-});
-const bebas = Bebas_Neue({
-  weight: ["400"],
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-bebas",
 });
 const Hero2 = () => {
   return (
@@ -24,17 +16,17 @@ const Hero2 = () => {
     >
       <div className="w-full h-[70vh] relative ">
         <h1
-          className={`text-black ${contrail_One.className} xl:text-[30rem] lg:text-[25rem] md:text-[20rem] sm:text-[15rem] text-[10rem] size-full text-end line-clamp-1 flex lg:justify-end justify-center items-center font-extrabold outline-white`}
+          className={`text-black ${contrail_One.className} xl:text-[30rem] lg:text-[25rem] md:text-[20rem] sm:text-[15rem] text-[10rem] size-full text-end line-clamp-1 flex lg:justify-end justify-center items-center font-extrabold outline-white pointer-events-none`}
         >
           CANON
         </h1>
         <h2
-          className={`absolute top-24 right-0 ${bebas.className} sm:text-8xl text-6xl sm:mix-blend-difference`}
+          className={`absolute top-24 right-0 font-bebas sm:text-8xl text-6xl sm:mix-blend-difference pointer-events-none`}
         >
           CAPTURING EVERY
         </h2>
         <h2
-          className={`absolute ${bebas.className} lg:left-1/3 lg:top-[70%] md:top-[80%] md:left-1/4 top-[80%] sm:text-8xl text-6xl line-clamp-1 sm:mix-blend-difference `}
+          className={`absolute font-bebas lg:left-1/3 lg:top-[70%] md:top-[80%] md:left-1/4 top-[80%] sm:text-8xl text-6xl line-clamp-1 sm:mix-blend-difference pointer-events-none`}
         >
           OF YOUR LIFETIME
         </h2>
@@ -52,10 +44,10 @@ const Hero2 = () => {
         </p>
       </div>
       <div
-        className={`absolute size-full -z-10 ${bebas.className} text-[#720A0B] whitespace-nowrap`}
+        className={`absolute size-full -z-10 font-bebas text-[#720A0B] whitespace-nowrap`}
       >
         <div className="size-full relative -z-10">
-          <p className="absolute -bottom-[80%] left-0 text-[80rem] line-clamp-1 hover:hidden">
+          <p className="absolute -bottom-[80%] left-0 text-[80rem] line-clamp-1">
             C
           </p>
           <p className="absolute rotate-180 left-1/3 -top-40 text-[26rem] line-clamp-1">

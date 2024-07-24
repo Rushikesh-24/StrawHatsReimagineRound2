@@ -14,7 +14,7 @@ import Hero2 from "@/components/NewComponents/Hero2";
 import CamerasSection from "@/components/CamerasSection";
 import SideScroll from "@/components/SideScroll";
 import Products from "@/components/Products";
-import Model2 from "@/components/NewComponents/Model2";
+import CameraModel2 from "@/components/NewComponents/CanonModel2";
 import Printer2 from "@/components/NewComponents/Printer2";
 
 export default function Home() {
@@ -26,10 +26,10 @@ export default function Home() {
         {
           smooth: true,
           smartphone:{
-            smooth:false,
+            smooth:true,
           },
           tablet:{
-            smooth:false
+            smooth:true
           },
           // ... all available Locomotive Scroll instance options 
         }
@@ -47,9 +47,9 @@ export default function Home() {
       <Cursor2/>
       <Hero2/>
       <MotionCameras />
+      <CameraModel2/>
       <Products />
       {/* <SideScroll /> */}
-      <Model2/>
       <Printer2/>
     </div>
     </LocomotiveScrollProvider>
