@@ -53,7 +53,7 @@ const CameraModel2 = () => {
 
   return (
     <div data-scroll-section className='w-screen sm:h-screen h-[80vh] flex justify-center items-center relative bg-black'>
-      <div className='lg:size-full md:size-5/6 sm:size-4/6 w-full h-1/2'>
+      <div data-scroll data-scroll-speed={2} className='lg:size-full md:size-5/6 sm:size-4/6 w-full h-1/2'>
       <Canvas
         shadows
         camera={{ position: [50, 20, -55], fov: 3 }}
