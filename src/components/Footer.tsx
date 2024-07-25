@@ -98,25 +98,22 @@ const Footer = () => {
             <h1 className={`font-normal lg:text-7xl sm:text-6xl text-xl ${bebas.className}`}>
               SOCIAL HANDLES
             </h1>
-            {/* <ul className={`mt-4 text-[#B8B8B8] ${contrail.className}`}>
-      <li className="text-4xl">
-        <Link href="#">Facebook</Link>
+            <ul className={`mt-4 text-[#B8B8B8] ${contrail.className}`}>
+      <li className="lg:text-4xl sm:text-2xl text-sm">
+        <Link href="https://www.facebook.com/canonindia/">Facebook</Link>
       </li>
-      <li className="text-4xl">
-        <Link href="#">Twitter</Link>
+      <li className="lg:text-4xl sm:text-2xl text-sm">
+        <Link href="https://x.com/Canon_India">Twitter</Link>
       </li>
-      <li className="text-4xl">
-        <Link href="#">Instagram</Link>
+      <li className="lg:text-4xl sm:text-2xl text-sm">
+        <Link href="https://www.instagram.com/canonindia_official/">Instagram</Link>
       </li>
-      <li className="text-4xl">
-        <Link href="#">LinkedIn</Link>
-      </li>
-    </ul> */}
+    </ul>
           </div>
         </div>
       </div>
       <div className="text-center h-20 w-full relative z-20">
-        <p className="text-sm">
+        <p className="text-sm view">
           COPYRIGHT © 2024 CANON INDIA PVT LTD. ALL RIGHTS RESERVED.
         </p>
       </div>
