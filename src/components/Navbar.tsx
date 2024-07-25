@@ -137,7 +137,7 @@ const Navbar = () => {
               <div className="flex sm:flex-col flex-col-reverse sm:items-end items-center justify-between w-1/2 sm:h-full gap-4">
                 <div className="sm:h-96 h-64 sm:w-3/4 w-[90vw] flex justify-center items-center">
                   <video
-                    className="h-full w-full object-cover rounded-lg absolute top-0 left-0 h-screen w-screen brightness-50"
+                    className="h-full w-full object-cover rounded-lg absolute top-0 left-0  brightness-50"
                     src="/videoplayback.mp4"
                     autoPlay
                     loop

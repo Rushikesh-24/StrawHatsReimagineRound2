@@ -11,8 +11,8 @@ const AboutUs2 = () => {
           <p className='text-right view'>Canon India markets a comprehensive range of sophisticated contemporary digital imaging products and solutions in India. </p>
           <p className='text-left view'>In sync with its corporate tagline- ‘Delighting You Always’, reinforced by World-class technology, Canon offers an extended product portfolio. </p>
         <div className='sm:text-9xl text-7xl z-10 absolute sm:-top-[10%] -top-[5%] -left-[15%]'>about</div>
-        <div className='sm:text-[25rem] text-[10rem] absolute z-10 -left-[15%]  sm:top-[30%] top-[25%] pointer-events-none'>u</div>
-        <div className='sm:text-[25rem] text-[10rem] absolute z-10 -right-[5%]  sm:bottom-[15%] bottom-[25%] pointer-events-none'>s</div>
+        <div data-scroll data-scroll-speed={2} className='sm:text-[25rem] text-[10rem] absolute z-10 -left-[15%]  sm:top-[30%] top-[25%] pointer-events-none'>u</div>
+        <div data-scroll data-scroll-speed={3} className='sm:text-[25rem] text-[10rem] absolute z-10 -right-[5%]  sm:bottom-[15%] bottom-[25%] pointer-events-none'>s</div>
           </div>
         </div>
 
