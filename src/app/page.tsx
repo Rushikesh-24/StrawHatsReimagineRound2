@@ -25,6 +25,7 @@ import Sustainability from "@/components/NewComponents/Sustainability";
 import Footer from "@/components/Footer";
 import HeroKiKyaBaatHai from "@/components/NewComponents/HeroKiKyaBaatHai";
 import HeroHeroHeyHeroHero from "@/components/NewComponents/HeroHeroHeyHeroHero";
+import Space from "@/components/NewComponents/Space";
 
 export default function Home() {
   const containerRef = useRef(null)
@@ -68,7 +69,9 @@ export default function Home() {
       {/* <SideScroll /> */}
       <Printer2/>
       <AboutUs2/>
+      <Space/>
       <Sustainability/>
+      <Space/>
       <Footer />
     </div>
     </LocomotiveScrollProvider>)}
