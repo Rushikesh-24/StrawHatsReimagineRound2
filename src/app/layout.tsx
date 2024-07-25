@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`max-w-screen overflow-x-hidden ${silkScreen.variable} ${contrail.variable} ${bebas.variable}`}>
+      <body className={`max-w-screen overflow-x-hidden ${silkScreen.variable} ${contrail.variable} ${bebas.variable} text-white`}>
         {/* <CameraAnimation> */}
           {children}
         {/* </CameraAnimation> */}
