@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="lg:w-5/6 w-full h-3/4  flex flex-wrap">
           {/* First Row */}
           <div className="lg:w-1/3 pl-4">
-            <h1 className={`font-normal lg:text-7xl sm:text-6xl text-xl ${bebas.className}`}>
+            <h1 className={`font-normal lg:text-7xl sm:text-6xl text-xl font-bebas`}>
               PRODUCTS
             </h1>
             <ul className={`mt-4 text-[#B8B8B8] ${contrail.className}`}>
@@ -36,7 +36,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="lg:w-1/3 px-4">
-            <h1 className={`font-normal lg:text-7xl sm:text-6xl text-xl ${bebas.className}`}>
+            <h1 className={`font-normal lg:text-7xl sm:text-6xl text-xl font-bebas`}>
               SERVICES
             </h1>
             <ul className={`mt-4 text-[#B8B8B8] ${contrail.className}`}>
@@ -52,7 +52,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="lg:w-1/3">
-            <h1 className={`font-normal lg:text-7xl sm:text-6xl text-xl ${bebas.className}`}>
+            <h1 className={`font-normal lg:text-7xl sm:text-6xl text-xl font-bebas`}>
               YOUR CANON + YOU
             </h1>
             <ul className={`mt-4 text-[#B8B8B8] ${contrail.className}`}>
@@ -70,7 +70,7 @@ const Footer = () => {
 
           {/* Second Row */}
           <div className="w-1/2 px-4 mt-8">
-            <h1 className={`font-normal lg:text-7xl  sm:text-6xl text-xl ${bebas.className}`}>
+            <h1 className={`font-normal lg:text-7xl  sm:text-6xl text-xl font-bebas`}>
               COMPANY
             </h1>
             <ul className={`lg:mt-4 text-[#B8B8B8] ${contrail.className}`}>
@@ -123,10 +123,10 @@ const Footer = () => {
       <div className={`text-[#720A0B] absolute -left-72 rotate-90 font-bold text-[16rem] tracking-widest ${bebas.className} z-10`}>
         <h1>CANON</h1>
       </div>
-      <div className={`text-[#720A0B] absolute -top-[60rem] left-96 rotate-90 font-bold text-[90rem] tracking-widest ${bebas.className} z-10`}>
+      <div className={`text-[#720A0B] absolute  left-96 rotate-90 font-bold text-[90rem] tracking-widest font-bebas z-10`}>
         <h1>O</h1>
       </div>
-      <div className={`absolute -right-10 -bottom-36 rounded-full flex justify-center items-center bg-[#720A0B] text-[#CA4849] size-96 rotate-animation font-bold text-9xl ${bebas.className}`} style={{clipPath: "inset(0px 0px -50% 0px)"}}>
+      <div className={`absolute -right-10 -bottom-36 rounded-full flex justify-center items-center bg-[#720A0B] text-[#CA4849] size-96 rotate-animation font-bold text-9xl font-bebas`} style={{clipPath: "inset(0px 0px -50% 0px)"}}>
         <h1>CANON</h1>
       </div>
     </footer>

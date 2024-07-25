@@ -55,7 +55,7 @@ export default function Home() {
       }
       containerRef={containerRef}
     >
-    <div data-scroll-container id="ho" ref={containerRef} className="font-contrail bg-red-canon">
+    <div data-scroll-container id="ho" ref={containerRef} className="font-contrail bg-red-canon overflow-x-hidden w-screen">
       <Navbar />
       <Cursor2/>
       <Navbar/>
