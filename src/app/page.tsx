@@ -21,6 +21,7 @@ import Printer2 from "@/components/NewComponents/Printer2";
 import AboutUs2 from "@/components/NewComponents/AboutUs2";
 import Footer from "@/components/Footer";
 import HeroKiKyaBaatHai from "@/components/NewComponents/HeroKiKyaBaatHai";
+import HeroHeroHeyHeroHero from "@/components/NewComponents/HeroHeroHeyHeroHero";
 
 export default function Home() {
   const containerRef = useRef(null)
@@ -51,7 +52,7 @@ export default function Home() {
     <div data-scroll-container id="ho" ref={containerRef} className="font-contrail bg-red-canon">
       <Navbar />
       <Cursor2/>
-      <Hero2/>
+      <HeroHeroHeyHeroHero />
       {/*<HeroKiKyaBaatHai />*/}
       <MotionCameras />
       <CameraCategories />
