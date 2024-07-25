@@ -2,11 +2,11 @@ import Image from "next/image"
 import Back from "../../../public/back.png"
 import EOS from "../../../public/cameras/eos.png"
 
-function Pic2(){
+function Pic2({text}:{text:string}){
 
     return(
             <div className='bg-pic hidden md:block z-10 /shrink select-none duration-300 cursor-move group w-[73.05vw] h-[63.675vw] group-hover:opacity-100 opacity-0 ml-20 flex-shrink-0 xl:w-[28.7vw] xl:h-[22.45vw] font-bebas text-black py-3 px-5' >
-                <p className='text-3xl mt-'>{"LENS CAMERAS"}</p>
+                <p className='text-3xl mt-'>{text}</p>
                 <div style={{height:Back.height-120}} className='relative flex items-center justify-center pointer-events-none'>
                     <div className="flex items-center justify-center">
                         <Image 
