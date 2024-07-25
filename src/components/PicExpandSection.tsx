@@ -10,7 +10,7 @@ function PicExpandSection({container}) {
   const c = useRef(null);
   const [sect, setSect] = useState(1)
   const heroimg = useTransform(() => sect) 
-  const SCALE = 0.01;
+  const SCALE = 0.02;
   useEffect(()=>{
     if(c.current){
         c?.current?.addEventListener('mousewheel', (event) => {

@@ -22,6 +22,8 @@ import AboutUs2 from "@/components/NewComponents/AboutUs2";
 import useLoadingManager from "@/components/NewComponents/LoadingManager";
 import Loader from "./Loading";
 import Sustainability from "@/components/NewComponents/Sustainability";
+import Footer from "@/components/Footer";
+import HeroKiKyaBaatHai from "@/components/NewComponents/HeroKiKyaBaatHai";
 
 export default function Home() {
   const containerRef = useRef(null)
@@ -58,18 +60,16 @@ export default function Home() {
       <Cursor2/>
       <Navbar/>
       <Hero2/>
+      {/*<HeroKiKyaBaatHai />*/}
       <MotionCameras />
       <CameraCategories />
-      <Products />
       <PicExpandSection container={containerRef}/>
-      <div data-scroll-section className="bg-red-canon h-screen">
-
-      </div>
       <CameraModel2/>
       {/* <SideScroll /> */}
       <Printer2/>
       <AboutUs2/>
       <Sustainability/>
+      <Footer />
     </div>
     </LocomotiveScrollProvider>)}
     </>
