@@ -76,7 +76,18 @@ const CameraModel2 = () => {
             castShadow
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
-          />
+          /> 
+          <spotLight
+          position={[0, 0, 20]}
+          angle={0.15}
+          penumbra={1}
+          decay={0}
+          intensity={5}
+          color={'rgba(223, 12, 19, 1)'}
+          castShadow
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+        />
           <mesh receiveShadow position={[0, 0, 100]} rotation={[-Math.PI / 2, 0, 0]}  >
             <planeGeometry args={[200, 200]} />
             <shadowMaterial opacity={2} color={''}/>

@@ -60,7 +60,7 @@ export default function Home() {
       <Cursor2/>
       <Navbar/>
       <Hero2/>
-      {/*<HeroKiKyaBaatHai />*/}
+      {/* <HeroKiKyaBaatHai /> */}
       <MotionCameras />
       <CameraCategories />
       <PicExpandSection container={containerRef}/>
