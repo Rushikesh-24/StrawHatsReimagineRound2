@@ -19,22 +19,29 @@ import CameraCategories from "@/components/CameraCategories";
 import CameraModel2 from "@/components/NewComponents/CanonModel2";
 import Printer2 from "@/components/NewComponents/Printer2";
 import AboutUs2 from "@/components/NewComponents/AboutUs2";
+import useLoadingManager from "@/components/NewComponents/LoadingManager";
+import Loader from "./Loading";
+import Sustainability from "@/components/NewComponents/Sustainability";
 import Footer from "@/components/Footer";
 import HeroKiKyaBaatHai from "@/components/NewComponents/HeroKiKyaBaatHai";
 
 export default function Home() {
   const containerRef = useRef(null)
-  
+  const { loading, progress } = useLoadingManager();
+
   return (
+    <>
+     {loading && <Loader progress={progress} />}
+     {!loading && (
     <LocomotiveScrollProvider
       options={
         {
           smooth: true,
           smartphone:{
-            smooth:false,
+            smooth:true,
           },
           tablet:{
-            smooth:false
+            smooth:true
           },
           // ... all available Locomotive Scroll instance options 
         }
@@ -48,21 +55,24 @@ export default function Home() {
       }
       containerRef={containerRef}
     >
-    <div data-scroll-container id="ho" ref={containerRef} className="font-contrail bg-red-canon">
+    <div data-scroll-container id="ho" ref={containerRef} className="font-contrail bg-red-canon overflow-x-hidden w-screen">
       <Navbar />
       <Cursor2/>
+      <Navbar/>
       <Hero2/>
       {/*<HeroKiKyaBaatHai />*/}
       <MotionCameras />
       <CameraCategories />
       <PicExpandSection container={containerRef}/>
       <CameraModel2/>
-      <Products />
       {/* <SideScroll /> */}
       <Printer2/>
       <AboutUs2/>
+      <Sustainability/>
       <Footer />
     </div>
-    </LocomotiveScrollProvider>
+    </LocomotiveScrollProvider>)}
+    </>
+    
   );
 }

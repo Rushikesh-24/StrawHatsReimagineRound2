@@ -63,7 +63,7 @@ const CameraModel2 = () => {
         }}
       >
         <Suspense fallback={null}>
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={2}  color={'red'}/>
           <MeshComponent2 onLoad={handleModelLoad} />
           <spotLight
             position={[-20, 20, 40]}
@@ -79,7 +79,7 @@ const CameraModel2 = () => {
           />
           <mesh receiveShadow position={[0, 0, 100]} rotation={[-Math.PI / 2, 0, 0]}  >
             <planeGeometry args={[200, 200]} />
-            <shadowMaterial opacity={10} color={'white'}/>
+            <shadowMaterial opacity={2} color={''}/>
           </mesh>
         </Suspense>
       </Canvas>
