@@ -24,6 +24,7 @@ import Loader from "./Loading";
 import Sustainability from "@/components/NewComponents/Sustainability";
 import Footer from "@/components/Footer";
 import HeroKiKyaBaatHai from "@/components/NewComponents/HeroKiKyaBaatHai";
+import HeroHeroHeyHeroHero from "@/components/NewComponents/HeroHeroHeyHeroHero";
 
 export default function Home() {
   const containerRef = useRef(null)
@@ -58,9 +59,8 @@ export default function Home() {
     <div data-scroll-container id="ho" ref={containerRef} className="font-contrail bg-red-canon overflow-x-hidden w-screen">
       <Navbar />
       <Cursor2/>
-      <Navbar/>
-      <Hero2/>
-      {/*<HeroKiKyaBaatHai />*/}
+      <HeroHeroHeyHeroHero />
+      {/* <HeroKiKyaBaatHai /> */}
       <MotionCameras />
       <CameraCategories />
       <PicExpandSection container={containerRef}/>
