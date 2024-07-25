@@ -39,7 +39,7 @@ const Navbar = () => {
         <div
           className={` font-bebas font-normal sm:text-7xl text-3xl text-center text-white ${isOpen ? "opacity-0" : ""}`}
         >
-          <Randomizer page={"CAMERAS"} />
+          <Randomizer page={"CANON"} />
         </div>
         <motion.button
           onClick={() => {
