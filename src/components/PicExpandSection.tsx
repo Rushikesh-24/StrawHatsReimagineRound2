@@ -27,7 +27,7 @@ function PicExpandSection({container}) {
   return (
     <div ref={c} data-scroll-section>
             <div className='h-[200vh] flex flex-col justify-center items-center font-bebas'>
-                <p className='text-8xl text-center mb-20'>Get the best out of <br/> our unique chemistry</p>
+                <p className='text-8xl text-center mb-20'>The best image quality <br/> with High Resolution</p>
                 <motion.div id="pic" style={{ scale: heroimg, rotate:(heroimg.get()*5 < 10) ? -10+heroimg.get()*5 : 0 }} className='bg-pic z-10 /shrink select-none cursor-move group w-[73.05vw] h-[63.675vw]  flex-shrink-0 xl:w-[48.7vw] xl:h-[42.45vw] font-bebas text-black py-3 px-5' >
                     <p className="text-[3.4rem] font-bold flex justify-between items-center">{"HIGH RESOLUTION"}
                     </p>
